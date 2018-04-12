@@ -74,7 +74,7 @@
       <file leaf-file-name="NewTransactionServlet.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/servlet/NewTransactionServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-421">
+            <state relative-caret-position="-49">
               <caret line="25" column="46" lean-forward="false" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
               <folding />
             </state>
@@ -91,34 +91,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="clientDashboard.jsp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="clientDashboard.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/clientDashboard.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="46" column="81" lean-forward="false" selection-start-line="46" selection-start-column="58" selection-end-line="46" selection-end-column="81" />
+            <state relative-caret-position="349">
+              <caret line="47" column="32" lean-forward="false" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/header.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="17" column="69" lean-forward="false" selection-start-line="17" selection-start-column="69" selection-end-line="17" selection-end-column="69" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="welcome.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/welcome.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="15" column="88" lean-forward="false" selection-start-line="15" selection-start-column="88" selection-end-line="15" selection-end-column="88" />
-              <folding>
-                <element signature="n#style#0;n#h1#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -156,7 +134,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>insert into client</find>
       <find>user</find>
       <find>has-error</find>
       <find>user.</find>
@@ -186,6 +163,7 @@
       <find>authenticatedUser</find>
       <find>welcome</find>
       <find>welcome to</find>
+      <find>APPROVED</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -216,10 +194,10 @@
         <option value="$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/model/TransactionCode.java" />
         <option value="$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/service/TransactionCodesDAOImp.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/uploader.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/clientDashboard.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/servlet/NewTransactionServlet.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/welcome.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/header.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/clientDashboard.jsp" />
       </list>
     </option>
   </component>
@@ -237,8 +215,8 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="211" />
-    <option name="y" value="161" />
+    <option name="x" value="208" />
+    <option name="y" value="30" />
     <option name="width" value="1469" />
     <option name="height" value="989" />
   </component>
@@ -626,15 +604,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1523508020395</updated>
-      <workItem from="1523508023076" duration="21717000" />
+      <workItem from="1523508023076" duration="23131000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21717000" />
+    <option name="totallyTimeSpent" value="23131000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="211" y="161" width="1469" height="989" extended-state="0" />
+    <frame x="208" y="30" width="1469" height="989" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1037,30 +1015,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/model/TransactionCode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="8" column="5" lean-forward="false" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/servlet/NewTransactionServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-421">
-          <caret line="25" column="46" lean-forward="false" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/servlet/RegisterServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="874">
-          <caret line="79" column="9" lean-forward="false" selection-start-line="79" selection-start-column="9" selection-end-line="79" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/model/ClientTransaction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="258">
@@ -1071,21 +1025,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/clientDashboard.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="46" column="81" lean-forward="false" selection-start-line="46" selection-start-column="58" selection-end-line="46" selection-end-column="81" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/welcome.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="15" column="88" lean-forward="false" selection-start-line="15" selection-start-column="88" selection-end-line="15" selection-end-column="88" />
-          <folding>
-            <element signature="n#style#0;n#h1#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1101,6 +1045,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="233">
           <caret line="17" column="69" lean-forward="false" selection-start-line="17" selection-start-column="69" selection-end-line="17" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/servlet/NewTransactionServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-49">
+          <caret line="25" column="46" lean-forward="false" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/servlet/RegisterServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="874">
+          <caret line="79" column="9" lean-forward="false" selection-start-line="79" selection-start-column="9" selection-end-line="79" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/model/TransactionCode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="8" column="5" lean-forward="false" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/clientDashboard.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="47" column="32" lean-forward="false" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
           <folding />
         </state>
       </provider>

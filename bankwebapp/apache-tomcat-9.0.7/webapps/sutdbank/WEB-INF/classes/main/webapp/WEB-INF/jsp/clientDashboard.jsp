@@ -25,18 +25,40 @@
 					<th style="width: 150px">Status</th>
 				</tr>
 				<c:forEach var="trans" items="${clientInfo.transactions}">
-					<tr>
-						<td>${trans.transCode}</td>
-						<td>${trans.toAccountNum}</td>
-						<td>${trans.dateTime}</td>
-						<td>${trans.amount}</td>
-						<c:if test="${empty trans.status}">
-							<td>Waiting</td>
-						</c:if>
-						<c:if test="${not empty trans.status}">
-							<td>${trans.status}</td>
-						</c:if>
-					</tr>
+					<c:choose>
+						<c:when test="${trans.status=='APPROVED'}">
+							<tr bgcolor="#27ae60">
+								<td>${trans.transCode}</td>
+								<td>${trans.toAccountNum}</td>
+								<td>${trans.dateTime}</td>
+								<td>${trans.amount}</td>
+								<td>${trans.status}</td>
+							</tr>
+						</c:when>
+						<c:when test="${trans.status=='DECLINED'}">
+							<tr bgcolor="#e74c3c">
+								<td>${trans.transCode}</td>
+								<td>${trans.toAccountNum}</td>
+								<td>${trans.dateTime}</td>
+								<td>${trans.amount}</td>
+								<td>${trans.status}</td>
+							</tr>
+						</c:when>
+						<c:otherwise>
+							<tr>
+								<td>${trans.transCode}</td>
+								<td>${trans.toAccountNum}</td>
+								<td>${trans.dateTime}</td>
+								<td>${trans.amount}</td>
+								<c:if test="${empty trans.status}">
+									<td>Pending</td>
+								</c:if>
+								<c:if test="${not empty trans.status}">
+									<td>${trans.status}</td>
+								</c:if>
+							</tr>
+						</c:otherwise>
+					</c:choose>
 				</c:forEach>
 			</table>
 		</div>
