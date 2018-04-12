@@ -24,8 +24,6 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.Vector;
-
 import sg.edu.sutd.bank.webapp.commons.ServiceException;
 import sg.edu.sutd.bank.webapp.model.ClientTransaction;
 import sg.edu.sutd.bank.webapp.model.User;
@@ -42,7 +40,6 @@ public class NewTransactionServlet extends DefaultServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Vector errors = new Vector();
 		try {
 			ClientTransaction clientTransaction = new ClientTransaction();
 			ClientInfo clientInfo = new ClientInfo();
