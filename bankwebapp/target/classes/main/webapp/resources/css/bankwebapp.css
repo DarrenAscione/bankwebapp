@@ -1,0 +1,74 @@
+body {
+	padding-top: 50px;
+}
+.sutd-template a.navbar-brand {
+	padding: 8px;
+}
+.sutd-template .navbar-nav {
+	float: right;
+	font-size: 17px;
+}
+.sutd-template .navbar-nav>li>a {
+	color: #e6e6e6;
+	font-weight: bold;
+}
+.header-text {
+	color: #9d9d9d;
+	padding-top: 13px;
+	padding-bottom: 15px;
+}
+.mainContent {
+	padding-top: 20px;
+	padding-bottom: 80px;
+}
+.feature {
+	padding-bottom: 100px;
+	padding-top: 100px;
+	border-top: 1px solid #e5e5e5;
+}
+footer.sutd-template {
+	border-top: 1px solid #e5e5e5;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	background-color: #def7e0;
+}
+.record {
+	border: 0.5px solid #ddd;
+	border-radius: 8px;
+	margin: 10px 0;
+	padding: 20px 10px 10px 20px;
+}
+.record-header {
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+.record-content p {
+	margin: 20px 0;
+}
+.toolbar {
+	margin-top: 20px;
+}
+.loginForm {
+	margin: auto;
+    width: 350px;
+    border: 3px solid green;
+    padding: 20px;
+}
+
+/* registration page */
+.registrationForm {
+	margin: auto;
+    width: 600px;
+    border: 3px solid green;
+    padding: 20px;
+}
+
+/* staff dashboard */
+.commonTable th, 
+.commonTable td {
+	text-align: left;
+	padding: 4px;
+	line-height: 2;
+}
+
+/**/

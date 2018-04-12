@@ -42,7 +42,8 @@ public class NewTransactionServlet extends DefaultServlet {
 			ClientTransaction clientTransaction = new ClientTransaction();
 			User user = new User(getUserId(req));
 			clientTransaction.setUser(user);
-			clientTransaction.setAmount(new BigDecimal(req.getParameter("amount")));
+			BigDecimal amount = new BigDecimal(req.getParameter("amount"));
+			clientTransaction.setAmount(amount);
 			clientTransaction.setTransCode(req.getParameter("transcode"));
 			clientTransaction.setToAccountNum(req.getParameter("toAccountNum"));
 			clientTransactionDAO.create(clientTransaction);

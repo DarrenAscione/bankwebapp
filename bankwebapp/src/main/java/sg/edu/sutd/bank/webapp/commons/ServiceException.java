@@ -22,7 +22,7 @@ public class ServiceException extends Exception {
 	public ServiceException(Throwable ex) {
 		super(ex);
 	}
-	
+
 	public static ServiceException wrap(Throwable e) {
 		return new ServiceException(e);
 	}
