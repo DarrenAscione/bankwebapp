@@ -1,0 +1,13 @@
+0:0:0:0:0:0:0:1 - - [11/Apr/2018:22:31:07 +0800] "GET /sutdbank HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [11/Apr/2018:22:31:07 +0800] "GET /sutdbank/ HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [11/Apr/2018:22:31:07 +0800] "GET /sutdbank/welcome HTTP/1.1" 200 2650
+0:0:0:0:0:0:0:1 - - [11/Apr/2018:22:31:08 +0800] "GET /sutdbank/resources/js/jquery-1.11.3.js HTTP/1.1" 200 284394
+0:0:0:0:0:0:0:1 - - [11/Apr/2018:22:31:08 +0800] "GET /sutdbank/resources/css/bootstrap.min.css HTTP/1.1" 200 117305
+0:0:0:0:0:0:0:1 - - [11/Apr/2018:22:31:08 +0800] "GET /sutdbank/resources/css/sons-of-obsidian.css HTTP/1.1" 200 1400
+0:0:0:0:0:0:0:1 - - [11/Apr/2018:22:31:08 +0800] "GET /sutdbank/resources/css/bankwebapp.css HTTP/1.1" 200 1151
+0:0:0:0:0:0:0:1 - - [11/Apr/2018:22:31:08 +0800] "GET /sutdbank/resources/css/bootstrap-theme.min.css HTTP/1.1" 200 19963
+0:0:0:0:0:0:0:1 - - [11/Apr/2018:22:31:08 +0800] "GET /sutdbank/resources/img/sutd-logo.png HTTP/1.1" 200 38377
+0:0:0:0:0:0:0:1 - - [11/Apr/2018:22:31:08 +0800] "GET /sutdbank/resources/img/sutd-logo.ico HTTP/1.1" 200 7886
+0:0:0:0:0:0:0:1 - - [11/Apr/2018:22:31:11 +0800] "GET /sutdbank/login HTTP/1.1" 200 3651
+0:0:0:0:0:0:0:1 - - [11/Apr/2018:22:31:11 +0800] "GET /sutdbank/resources/js/bootstrap.min.js HTTP/1.1" 200 35951
+0:0:0:0:0:0:0:1 - - [11/Apr/2018:22:31:11 +0800] "GET /sutdbank/resources/js/login.js HTTP/1.1" 200 863
