@@ -21,6 +21,7 @@
 				<form id="editRegistrationForm" action="staffDashboard" method="post" >
 					<table border="1" cellpadding="5" class="commonTable">
 						<tr>
+                            <th style="width: 150px">Username</th>
 							<th style="width: 150px">Full name</th>
 							<th style="width: 150px">FIN</th>
 							<th style="width: 150px">Date of birth</th>
@@ -30,6 +31,7 @@
 						</tr>
 						<c:forEach var="client" items="${sessionScope.registrationList}">
 							<tr>
+                                <td>${client.user.userName}</td>
 								<td>${client.fullName}</td>
 								<td>${client.fin}</td>
 								<td>${client.dateOfBirth}</td>

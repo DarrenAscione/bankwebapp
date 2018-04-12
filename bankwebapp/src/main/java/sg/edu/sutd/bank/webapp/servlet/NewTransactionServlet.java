@@ -30,6 +30,9 @@ import sg.edu.sutd.bank.webapp.model.ClientTransaction;
 import sg.edu.sutd.bank.webapp.model.User;
 import sg.edu.sutd.bank.webapp.service.ClientTransactionDAO;
 import sg.edu.sutd.bank.webapp.service.ClientTransactionDAOImpl;
+import sg.edu.sutd.bank.webapp.model.ClientInfo;
+import sg.edu.sutd.bank.webapp.service.ClientInfoDAO;
+import sg.edu.sutd.bank.webapp.service.ClientInfoDAOImpl;
 
 @WebServlet(NEW_TRANSACTION)
 public class NewTransactionServlet extends DefaultServlet {
@@ -40,8 +43,10 @@ public class NewTransactionServlet extends DefaultServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 			ClientTransaction clientTransaction = new ClientTransaction();
+			ClientInfo clientInfo = new ClientInfo();
 			User user = new User(getUserId(req));
 			clientTransaction.setUser(user);
+			clientInfo.setUser(user);
 			BigDecimal amount = new BigDecimal(req.getParameter("amount"));
 			clientTransaction.setAmount(amount);
 			clientTransaction.setTransCode(req.getParameter("transcode"));

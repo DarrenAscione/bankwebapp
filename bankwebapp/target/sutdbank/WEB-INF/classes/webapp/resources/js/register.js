@@ -53,7 +53,7 @@
 	    	} else {
 	    		$('#input-group-username').removeClass('has-error');
 	    	}
-	    	if (!password) {
+	    	if (!password || !validatePassword(password)) {
 	    		$('#input-group-password').addClass('has-error');
 	    		hasError = true;
 	    	} else {
@@ -73,4 +73,9 @@
 function validateEmail(email) {
 	  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 	  return re.test(email);
+}
+
+function validatePassword(password) {
+    var re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}/;
+    return re.test(password)
 }
