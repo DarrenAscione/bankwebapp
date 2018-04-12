@@ -66,7 +66,4 @@ public class NewTransactionServlet extends DefaultServlet {
 		}
 	}
 
-/*	private boolean isValid(BigDecimal amount) {
-		return amount.compareTo(BigDecimal.TEN) > 0;
-	}*/
 }

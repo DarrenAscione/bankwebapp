@@ -37,7 +37,6 @@ public class ClientTransactionDAOImpl extends AbstractDAOImpl implements ClientT
         BigDecimal trans_amount, curr_amount;
 
         try {
-
             ps = prepareStmt(conn, "INSERT INTO client_transaction(trans_code, amount, to_account_num, user_id)"
                     + " VALUES(?,?,?,?)");
             int idx = 1;

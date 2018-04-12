@@ -19,6 +19,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
+import sg.edu.sutd.bank.webapp.model.TransactionCode;
+
 
 import sg.edu.sutd.bank.webapp.commons.ServiceException;
 
@@ -29,6 +31,7 @@ public class TransactionCodesDAOImp extends AbstractDAOImpl implements Transacti
 		Connection conn = connectDB();
 		PreparedStatement ps;
 		try {
+
 			StringBuilder query = new StringBuilder();
 			query.append("INSERT INTO transaction_code(code, user_id, used)"
 					+ " VALUES ");

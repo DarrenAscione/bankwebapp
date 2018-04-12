@@ -154,7 +154,7 @@ public class StaffDashboardServlet extends DefaultServlet {
 				ClientTransaction trans = new ClientTransaction();
 				trans.setId(transId);
 				trans.setStatus(decision.getTransStatus());
-				transactions.add(trans );
+				transactions.add(trans);
 			}
 		}
 		if (!transactions.isEmpty()) {

@@ -23,4 +23,6 @@ public interface TransactionCodesDAO {
 
 	void create(List<String> codes, int userId) throws ServiceException;
 
+
+
 }

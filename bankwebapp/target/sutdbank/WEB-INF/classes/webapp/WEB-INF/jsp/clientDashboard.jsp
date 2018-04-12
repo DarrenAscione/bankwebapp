@@ -41,11 +41,17 @@
 			</table>
 		</div>
 		<div id="createTransaction" style="padding-top: 50px">
+			<h3>Transaction: </h3>
+			<h6>Submit a Transaction: </h6>
 			<form id="registrationForm" action="newTransaction" method="get">
 				<button id="createTransBtn" type="submit" class="btn btn-default">New Transaction</button>
 			</form>
+			<h6>File Upload: </h6>
+			<form action="FileUploadHandler" enctype="multipart/form-data" method="post">
+				<input type="file" name="file2" /><br>
+				<input type="submit" value="upload" class="btn btn-default"/>
+			</form>
 		</div>
-	</div>
 	</main>
   </body>
 </html>
