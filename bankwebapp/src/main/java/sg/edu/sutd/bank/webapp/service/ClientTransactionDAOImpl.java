@@ -15,13 +15,13 @@ https://opensource.org/licenses/ECL-2.0
 
 package sg.edu.sutd.bank.webapp.service;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import sg.edu.sutd.bank.webapp.commons.ServiceException;
 import sg.edu.sutd.bank.webapp.model.ClientTransaction;
 import sg.edu.sutd.bank.webapp.model.TransactionStatus;
@@ -32,16 +32,21 @@ public class ClientTransactionDAOImpl extends AbstractDAOImpl implements ClientT
 	@Override
 	public void create(ClientTransaction clientTransaction) throws ServiceException {
 		Connection conn = connectDB();
-		PreparedStatement ps;
-		try {
-			ps = prepareStmt(conn, "INSERT INTO client_transaction(trans_code, amount, to_account_num, user_id)"
-					+ " VALUES(?,?,?,?)");
-			int idx = 1;
-			ps.setString(idx++, clientTransaction.getTransCode());
-			ps.setBigDecimal(idx++, clientTransaction.getAmount());
-			ps.setString(idx++, clientTransaction.getToAccountNum());
-			ps.setInt(idx++, clientTransaction.getUser().getId());
-			executeInsert(clientTransaction, ps);
+		PreparedStatement ps, ps0;
+        ResultSet rs = null;
+        BigDecimal trans_amount, curr_amount;
+
+        try {
+
+            ps = prepareStmt(conn, "INSERT INTO client_transaction(trans_code, amount, to_account_num, user_id)"
+                    + " VALUES(?,?,?,?)");
+            int idx = 1;
+            ps.setString(idx++, clientTransaction.getTransCode());
+            ps.setBigDecimal(idx++, clientTransaction.getAmount());
+            ps.setString(idx++, clientTransaction.getToAccountNum());
+            ps.setInt(idx++, clientTransaction.getUser().getId());
+            executeInsert(clientTransaction, ps);
+
 		} catch (SQLException e) {
 			throw ServiceException.wrap(e);
 		}

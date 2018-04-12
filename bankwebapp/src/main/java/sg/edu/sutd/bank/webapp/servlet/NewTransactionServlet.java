@@ -24,6 +24,7 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Vector;
 
 import sg.edu.sutd.bank.webapp.commons.ServiceException;
 import sg.edu.sutd.bank.webapp.model.ClientTransaction;
@@ -41,6 +42,7 @@ public class NewTransactionServlet extends DefaultServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Vector errors = new Vector();
 		try {
 			ClientTransaction clientTransaction = new ClientTransaction();
 			ClientInfo clientInfo = new ClientInfo();
@@ -48,14 +50,23 @@ public class NewTransactionServlet extends DefaultServlet {
 			clientTransaction.setUser(user);
 			clientInfo.setUser(user);
 			BigDecimal amount = new BigDecimal(req.getParameter("amount"));
+			/*if (!isValid(amount)) {
+				errors.add("Please specify the name as Last, First");
+			}*/
 			clientTransaction.setAmount(amount);
 			clientTransaction.setTransCode(req.getParameter("transcode"));
 			clientTransaction.setToAccountNum(req.getParameter("toAccountNum"));
+
 			clientTransactionDAO.create(clientTransaction);
 			redirect(resp, ServletPaths.CLIENT_DASHBOARD_PAGE);
+
 		} catch (ServiceException e) {
 			sendError(req, e.getMessage());
 			forward(req, resp);
 		}
 	}
+
+/*	private boolean isValid(BigDecimal amount) {
+		return amount.compareTo(BigDecimal.TEN) > 0;
+	}*/
 }

@@ -93,7 +93,7 @@
 					<input type="text" class="form-control" id="username" name="username" placeholder="User name">
 				</div>
 				<div id="input-group-password" class="form-group">
-					<label for="password" class="control-label">Password</label>
+					<label for="password" class="control-label">Password (Please use 8 or more characters with at least 1 special symbol and 1 Capital letter and a Number)</label>
 					<input type="password" class="form-control" id="password" name="password" placeholder="Password">
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 				</div>

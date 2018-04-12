@@ -6,7 +6,8 @@
   <%@include file="pageHeader.jsp"%>
   <body>
 	<%@include file="header.jsp"%>
-	
+	<script type="text/javascript" src="<c:url value="/resources/js/jquery-1.11.3.js" />"></script>
+
 	<main id="content" class="mainContent sutd-template" role="main">
 	<div class="container">
 		<%@include file="errorMessage.jsp"%>
@@ -22,12 +23,14 @@
 				</div>
 				<div id="input-group-amount" class="form-group">
 					<label for="amount" class="control-label">Amount</label>
-					<input type="text" class="form-control" id="amount" name="amount" placeholder="amount">
+					<input type="number" class="form-control" id="amount" name="amount" placeholder="amount">
 				</div>
 				<button id="createTransBtn" type="submit" class="btn btn-default">Submit</button>
 			</form>
 		</div>
 	</div>
 	</main>
+	<script type="text/javascript" src="<c:url value="/resources/js/jquery-1.11.3.js" />"></script>
+	<script type="text/javascript" src="<c:url value="/resources/js/transaction.js" />"></script>
   </body>
 </html>
