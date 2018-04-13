@@ -27,17 +27,16 @@ import javax.servlet.http.HttpServletResponse;
 import sg.edu.sutd.bank.webapp.commons.ServiceException;
 import sg.edu.sutd.bank.webapp.model.ClientTransaction;
 import sg.edu.sutd.bank.webapp.model.User;
-import sg.edu.sutd.bank.webapp.service.ClientTransactionDAO;
-import sg.edu.sutd.bank.webapp.service.ClientTransactionDAOImpl;
+import sg.edu.sutd.bank.webapp.service.*;
 import sg.edu.sutd.bank.webapp.model.ClientInfo;
-import sg.edu.sutd.bank.webapp.service.ClientInfoDAO;
-import sg.edu.sutd.bank.webapp.service.ClientInfoDAOImpl;
 
 @WebServlet(NEW_TRANSACTION)
 public class NewTransactionServlet extends DefaultServlet {
 	private static final long serialVersionUID = 1L;
 	private ClientTransactionDAO clientTransactionDAO = new ClientTransactionDAOImpl();
-	
+	private TransactionCodesDAO transactionCodesDAO = new TransactionCodesDAOImp();
+
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
@@ -48,12 +47,16 @@ public class NewTransactionServlet extends DefaultServlet {
 			clientInfo.setUser(user);
 			BigDecimal amount = new BigDecimal(req.getParameter("amount"));
 			clientTransaction.setAmount(amount);
-			clientTransaction.setTransCode(req.getParameter("transcode"));
+			String code = req.getParameter("transcode");
+			clientTransaction.setTransCode(code);
 			clientTransaction.setToAccountNum(req.getParameter("toAccountNum"));
 
-			clientTransactionDAO.create(clientTransaction);
-			redirect(resp, ServletPaths.CLIENT_DASHBOARD_PAGE);
-
+			if (transactionCodesDAO.validCode(code,clientInfo.getUser().getId())) {
+				clientTransactionDAO.create(clientTransaction);
+				redirect(resp, ServletPaths.CLIENT_DASHBOARD_PAGE);
+			} else {
+				throw new ServletException("wrong");
+			}
 		} catch (ServiceException e) {
 			sendError(req, e.getMessage());
 			forward(req, resp);

@@ -17,9 +17,9 @@ package sg.edu.sutd.bank.webapp.service;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-import sg.edu.sutd.bank.webapp.model.TransactionCode;
 
 
 import sg.edu.sutd.bank.webapp.commons.ServiceException;
@@ -56,5 +56,47 @@ public class TransactionCodesDAOImp extends AbstractDAOImpl implements Transacti
 			throw ServiceException.wrap(e);
 		}
 	}
+
+	@Override
+	public void updateUsage(String code, int userId) throws ServiceException {
+		Connection conn = connectDB();
+		PreparedStatement ps;
+		String acode = "\"" + code + "\"";
+		try {
+			String query = String.format("UPDATE transaction_code SET used = 1 WHERE code=%s",acode);
+			ps = prepareStmt(conn, query);
+			int rowNum = ps.executeUpdate();
+			if (rowNum == 0) {
+				throw new SQLException("Update Failed, the code has expired!!");
+			}
+
+
+		} catch (SQLException e) {
+			throw ServiceException.wrap(e);
+		}
+
+	}
+
+	@Override
+	public Boolean validCode(String code, int userId) throws ServiceException {
+		Connection conn = connectDB();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String acode = "\"" + code + "\"";
+		try {
+			String query = String.format("SELECT * FROM transaction_code WHERE code= %s AND user_id = %s", acode, userId);
+			ps = prepareStmt(conn, query);
+			rs = ps.executeQuery();
+			if (!rs.isBeforeFirst()) {
+				throw new SQLException("Code is invalid! Please enter one of the transaction codes sent to your email.");
+			}
+		} catch (SQLException e) {
+			throw ServiceException.wrap(e);
+		}
+		return true;
+	}
+
+
+
 
 }
