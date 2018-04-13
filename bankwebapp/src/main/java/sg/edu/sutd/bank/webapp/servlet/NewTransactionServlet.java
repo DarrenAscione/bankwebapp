@@ -52,6 +52,7 @@ public class NewTransactionServlet extends DefaultServlet {
 			clientTransaction.setToAccountNum(req.getParameter("toAccountNum"));
 
 			if (transactionCodesDAO.validCode(code,clientInfo.getUser().getId())) {
+				transactionCodesDAO.updateUsage(code, clientInfo.getUser().getId());
 				clientTransactionDAO.create(clientTransaction);
 				redirect(resp, ServletPaths.CLIENT_DASHBOARD_PAGE);
 			} else {

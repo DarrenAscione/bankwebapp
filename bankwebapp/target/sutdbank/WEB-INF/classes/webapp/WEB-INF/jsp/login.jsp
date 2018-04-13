@@ -9,7 +9,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <link rel="icon" href="<c:url value="/resources/img/sutd-logo.ico" />">
 
-    <title>SUTD BANK</title>
+    <title>DIGITAL BANK</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/bootstrap.min.css" />">
@@ -43,9 +43,9 @@
 	        <div id="navbar" class="collapse navbar-collapse">
 	          <ul class="nav navbar-nav">
 	            <c:if test="${empty authenticatedUser}">
-	            	<li><a href="login">Login</a></li>
-	            	<li class="header-text">or</li>
-            	 	<li><a href="register">Register</a></li>
+	            	<li><a href="login">LOGIN</a></li>
+	            	<li class="header-text"> || </li>
+            	 	<li><a href="register">REGISTER</a></li>
 	            </c:if>
 	            <c:if test="${not empty authenticatedUser}">
 	            	<li><a href="logout">Logout</a></li>

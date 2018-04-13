@@ -11,11 +11,11 @@
 	<div class="container">
 		<%@include file="errorMessage.jsp"%>
 		<div id="accountBalance">
-			<h4>Account Balance:  </h4>
-			<div><h1 style="font-weight: bold; color: slategray">$${clientInfo.account.amount}</h1></div>
+			<h4>ACCOUNT BALANCE</h4>
+			<div><h1 style="color: slategray" class="amount">$${clientInfo.account.amount}</h1></div>
 		</div>
 		<div id="transHistory">
-			<h4>Transaction History:  </h4>
+			<h4>TRANSACTION HISTORY</h4>
 			<table border="1" cellpadding="5" class="commonTable">
 				<tr>
 					<th style="width: 150px">Transaction code</th>
@@ -63,12 +63,12 @@
 			</table>
 		</div>
 		<div id="createTransaction" style="padding-top: 50px">
-			<h4>Create Transaction: </h4>
-			<h6>Submit a Transaction: </h6>
+			<h4>TRANSACTION CREATION</h4>
+			<h6>SUBMIT TRANSACTION</h6>
 			<form id="registrationForm" action="newTransaction" method="get">
 				<button id="createTransBtn" type="submit" class="btn btn-default">New Transaction</button>
 			</form>
-			<h6>File Upload: </h6>
+			<h6>FILE UPLOAD</h6>
 			<form action="FileUploadHandler" enctype="multipart/form-data" method="post">
 				<input type="file" name="file2" /><br>
 				<input type="submit" value="upload" class="btn btn-default"/>
