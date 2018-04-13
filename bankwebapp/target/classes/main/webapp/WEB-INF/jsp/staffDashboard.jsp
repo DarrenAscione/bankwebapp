@@ -58,7 +58,7 @@
 			</form>
 			</c:if>
 				<c:if test="${empty registrationList}">
-				<div>Empty</div>	
+				<div>No Pending User Request</div>
 			</c:if>
 		</div>
 		
@@ -85,7 +85,9 @@
 										<option value="approve">Approve</option>
 										<option value="decline">Decline</option>
 									</select>
-									<input type="hidden" name="trans_id" value="${trans.id}"> 
+									<input type="hidden" name="trans_id" value="${trans.id}">
+                                    <input type="hidden" name="trans_toAccountNum" value="${trans.toAccountNum}">
+                                    <input type="hidden" name="trans_amount" value="${trans.amount}">
 								</td>
 							</tr>
 						</c:forEach>
@@ -99,7 +101,7 @@
 			</form>
 			</c:if>
 				<c:if test="${empty transList}">
-				<div>Empty</div>	
+				<div>No Transaction</div>
 			</c:if>
 		</div>
 	</div>

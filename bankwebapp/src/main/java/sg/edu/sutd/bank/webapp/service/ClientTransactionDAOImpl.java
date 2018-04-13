@@ -32,9 +32,8 @@ public class ClientTransactionDAOImpl extends AbstractDAOImpl implements ClientT
 	@Override
 	public void create(ClientTransaction clientTransaction) throws ServiceException {
 		Connection conn = connectDB();
-		PreparedStatement ps, ps0;
+		PreparedStatement ps;
         ResultSet rs = null;
-        BigDecimal trans_amount, curr_amount;
 
         try {
             ps = prepareStmt(conn, "INSERT INTO client_transaction(trans_code, amount, to_account_num, user_id)"
@@ -110,6 +109,26 @@ public class ClientTransactionDAOImpl extends AbstractDAOImpl implements ClientT
 			closeDb(conn, ps, rs);
 		}
 	}
+
+    @Override
+    public void updateTransactions(ClientTransaction transaction) throws ServiceException {
+        Connection conn = connectDB();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String query = String.format("UPDATE client_account SET amount = amount + %s WHERE user_id = %s", transaction.getAmount(), transaction.getToAccountNum());
+        try {
+            ps = prepareStmt(conn, query);
+            int rowNum = ps.executeUpdate();
+            if (transaction.getToAccountNum() == null) {
+                throw new SQLException("Update failed, no rows here!" + transaction.getId());
+            }
+
+        } catch (SQLException e) {
+            throw ServiceException.wrap(e);
+        } finally {
+            closeDb(conn, ps, rs);
+        }
+    }
 
 	@Override
 	public void updateDecision(List<ClientTransaction> transactions) throws ServiceException {

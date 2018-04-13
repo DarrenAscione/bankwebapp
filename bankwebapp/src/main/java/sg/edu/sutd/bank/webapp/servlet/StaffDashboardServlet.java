@@ -17,6 +17,7 @@ package sg.edu.sutd.bank.webapp.servlet;
 import static sg.edu.sutd.bank.webapp.servlet.ServletPaths.STAFF_DASHBOARD_PAGE;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -142,18 +143,43 @@ public class StaffDashboardServlet extends DefaultServlet {
 		}
 	}
 
+	private BigDecimal[] convertStringtoBigDecimal(String[] list) {
+        BigDecimal montanttt[] = new BigDecimal[list.length];
+        for (int i=0; i < list.length; i++) {
+            try {
+                montanttt[i] = new BigDecimal(list[i]);
+            } catch (NumberFormatException e) {
+                System.out.println("Exception while parsing: " + list[i]);
+            }
+        }
+        return montanttt;
+    }
+
 	private void onTransactionDecisionAction(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		String[] decisions = req.getParameterValues("decision");
 		int[] transIds = toIntegerArray(req.getParameterValues("trans_id"));
+		String[] transAccNum = req.getParameterValues("trans_toAccountNum");
+        BigDecimal[] transAmount = convertStringtoBigDecimal(req.getParameterValues("trans_amount"));
+
 		List<ClientTransaction> transactions = new ArrayList<ClientTransaction>();
 		for (int i = 0; i < transIds.length; i++) {
 			int transId = transIds[i];
 			Decision decision = Decision.valueOf(decisions[i]);
 			if (decision.getStatus() != null) {
 				ClientTransaction trans = new ClientTransaction();
+				trans.setToAccountNum(transAccNum[i]);
+				trans.setAmount(transAmount[i]);
 				trans.setId(transId);
 				trans.setStatus(decision.getTransStatus());
+				if (decision.getStatus().name().equals("APPROVED")) {
+                    try {
+                        clientTransactionDAO.updateTransactions(trans);
+                    } catch (ServiceException e) {
+                        sendError(req, e.getMessage());
+                    }
+                }
+
 				transactions.add(trans);
 			}
 		}

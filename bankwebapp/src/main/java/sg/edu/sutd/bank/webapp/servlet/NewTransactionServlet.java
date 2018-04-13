@@ -47,9 +47,6 @@ public class NewTransactionServlet extends DefaultServlet {
 			clientTransaction.setUser(user);
 			clientInfo.setUser(user);
 			BigDecimal amount = new BigDecimal(req.getParameter("amount"));
-			/*if (!isValid(amount)) {
-				errors.add("Please specify the name as Last, First");
-			}*/
 			clientTransaction.setAmount(amount);
 			clientTransaction.setTransCode(req.getParameter("transcode"));
 			clientTransaction.setToAccountNum(req.getParameter("toAccountNum"));
