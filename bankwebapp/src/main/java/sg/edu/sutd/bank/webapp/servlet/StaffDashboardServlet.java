@@ -174,7 +174,8 @@ public class StaffDashboardServlet extends DefaultServlet {
 				trans.setStatus(decision.getTransStatus());
 				if (decision.getStatus().name().equals("APPROVED")) {
                     try {
-                        clientTransactionDAO.updateTransactions(trans);
+                        clientTransactionDAO.updateReceiver(trans);
+                        clientTransactionDAO.updateSender(trans);
                     } catch (ServiceException e) {
                         sendError(req, e.getMessage());
                     }

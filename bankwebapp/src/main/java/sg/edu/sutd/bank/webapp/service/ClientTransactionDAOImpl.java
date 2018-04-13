@@ -110,16 +110,39 @@ public class ClientTransactionDAOImpl extends AbstractDAOImpl implements ClientT
 		}
 	}
 
-    @Override
-    public void updateTransactions(ClientTransaction transaction) throws ServiceException {
+	@Override
+    public void updateSender(ClientTransaction transaction) throws ServiceException {
         Connection conn = connectDB();
         PreparedStatement ps = null;
         ResultSet rs = null;
-        String query = String.format("UPDATE client_account SET amount = amount + %s WHERE user_id = %s", transaction.getAmount(), transaction.getToAccountNum());
+        String query = String.format("UPDATE client_account AS a, client_transaction AS b SET a.amount = a.amount - %s WHERE b.id = %s AND a.user_id = b.user_id",
+                transaction.getAmount(), transaction.getId());
         try {
             ps = prepareStmt(conn, query);
-            int rowNum = ps.executeUpdate();
-            if (transaction.getToAccountNum() == null) {
+            ps.executeUpdate();
+            if (false) {
+                throw new SQLException("Update failed, no rows here!" + transaction.getId());
+            }
+
+        } catch (SQLException e) {
+            throw ServiceException.wrap(e);
+        } finally {
+            closeDb(conn, ps, rs);
+        }
+    }
+
+    @Override
+    public void updateReceiver(ClientTransaction transaction) throws ServiceException {
+        Connection conn = connectDB();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String query = String.format("UPDATE client_account SET amount = amount + %s WHERE user_id = %s", transaction.getAmount(), transaction.getToAccountNum());
+
+        try {
+            ps = prepareStmt(conn, query);
+            ps.executeUpdate();
+            if (false) {
                 throw new SQLException("Update failed, no rows here!" + transaction.getId());
             }
 

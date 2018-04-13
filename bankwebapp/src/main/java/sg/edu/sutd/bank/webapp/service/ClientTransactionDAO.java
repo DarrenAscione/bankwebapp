@@ -32,6 +32,9 @@ public interface ClientTransactionDAO {
 
 	void updateDecision(List<ClientTransaction> transactions) throws ServiceException;
 
-	void updateTransactions(ClientTransaction transaction) throws ServiceException;
+	void updateReceiver(ClientTransaction transaction) throws ServiceException;
+
+    void updateSender(ClientTransaction transaction) throws ServiceException;
+
 
 }

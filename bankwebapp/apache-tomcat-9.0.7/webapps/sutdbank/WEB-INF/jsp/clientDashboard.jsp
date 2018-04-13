@@ -11,11 +11,11 @@
 	<div class="container">
 		<%@include file="errorMessage.jsp"%>
 		<div id="accountBalance">
-			<h3>Account Balance:  </h3>
-			<div>${clientInfo.account.amount}</div>
+			<h4>Account Balance:  </h4>
+			<div><h3 style="font-weight: bold; color: slategray">$${clientInfo.account.amount}</h3></div>
 		</div>
 		<div id="transHistory">
-			<h3>Transaction History:  </h3>
+			<h4>Transaction History:  </h4>
 			<table border="1" cellpadding="5" class="commonTable">
 				<tr>
 					<th style="width: 150px">Transaction code</th>
@@ -63,7 +63,7 @@
 			</table>
 		</div>
 		<div id="createTransaction" style="padding-top: 50px">
-			<h3>Transaction: </h3>
+			<h4>Create Transaction: </h4>
 			<h6>Submit a Transaction: </h6>
 			<form id="registrationForm" action="newTransaction" method="get">
 				<button id="createTransBtn" type="submit" class="btn btn-default">New Transaction</button>
