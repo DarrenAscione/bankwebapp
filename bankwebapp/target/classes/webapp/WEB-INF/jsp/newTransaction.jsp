@@ -19,7 +19,7 @@
 				</div>
 				<div id="input-group-toAccount" class="form-group">
 					<label for="toAccountNum" class="control-label">To (account number)</label>
-					<input type="text" class="form-control" id="toAccountNum" name="toAccountNum" placeholder="To Account Number">
+					<input type="number" class="form-control" id="toAccountNum" name="toAccountNum" placeholder="To Account Number">
 				</div>
 				<div id="input-group-amount" class="form-group">
 					<label for="amount" class="control-label">Amount</label>
