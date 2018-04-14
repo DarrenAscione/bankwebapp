@@ -23,11 +23,20 @@
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
 
+	<servlet>
+		<servlet-name>FileUploadServlet</servlet-name>
+		<servlet-class>sg.edu.sutd.bank.webapp.servlet.FileUploadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FileUploadServlet</servlet-name>
+		<url-pattern>/FileUploadServlet/*</url-pattern>
+	</servlet-mapping>
+
 	<!-- context param -->
 	<context-param>
 		<description>Location to store uploaded file</description>
 		<param-name>file-upload</param-name>
-		<param-value>/Users/lylytran/Projects/BankWebApp/WEBAPPS_DATA/</param-value>
+		<param-value>/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/data/</param-value>
 	</context-param>
 	<!-- login -->
 

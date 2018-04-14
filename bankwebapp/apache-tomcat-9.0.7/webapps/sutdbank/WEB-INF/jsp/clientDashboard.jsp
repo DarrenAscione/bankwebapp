@@ -69,9 +69,10 @@
 				<button id="createTransBtn" type="submit" class="btn btn-default">New Transaction</button>
 			</form>
 			<h6>FILE UPLOAD</h6>
-			<form action="FileUploadHandler" enctype="multipart/form-data" method="post">
-				<input type="file" name="file2" /><br>
-				<input type="submit" value="upload" class="btn btn-default"/>
+			<form action="FileUploadServlet" enctype="multipart/form-data" method="post">
+				Enter File Name <input type="text" name="file_name"><br>
+				Select<input type="file" name="file2" /><br>
+				<input type="submit" value="upload" />
 			</form>
 			<%
 				String file_name=(String)request.getParameter("filename");
