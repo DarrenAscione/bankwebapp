@@ -73,6 +73,12 @@
 				<input type="file" name="file2" /><br>
 				<input type="submit" value="upload" class="btn btn-default"/>
 			</form>
+			<%
+				String file_name=(String)request.getParameter("filename");
+				if(file_name!=null){
+					System.out.println(file_name+" File uploaded successfuly");
+				}
+			%>
 		</div>
 	</main>
   </body>
