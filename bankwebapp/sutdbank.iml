@@ -26,6 +26,12 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/test" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/main" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java/sg" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java/sg/edu" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java/sg/edu/sutd" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java/sg/edu/sutd/bank" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java/sg/edu/sutd/bank/webapp" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java/sg/edu/sutd/bank/webapp/commons" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/.idea" />
       <excludeFolder url="file://$MODULE_DIR$/apache-tomcat-9.0.7" />
       <excludeFolder url="file://$MODULE_DIR$/etc" />
@@ -50,6 +56,17 @@
         </CLASSES>
         <JAVADOC />
         <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/junit-4.12.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/libs/junit-4.12-sources.jar!/" />
+        </SOURCES>
       </library>
     </orderEntry>
   </component>

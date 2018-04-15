@@ -11,7 +11,7 @@ public class Helper {
 
     public static String input_normalizer(String input) {
         input = Normalizer.normalize(input, Normalizer.Form.NFKC);
-        return input.replaceAll("^\\p{ASCII}]", "");
+        return input.replaceAll("[^\\p{ASCII}]", "");
     }
 
     public static Boolean xss_match(String input) {
