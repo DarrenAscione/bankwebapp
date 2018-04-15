@@ -32,6 +32,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test/java/sg/edu/sutd/bank" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java/sg/edu/sutd/bank/webapp" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java/sg/edu/sutd/bank/webapp/commons" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java/sg/edu/sutd/bank/webapp/model" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/.idea" />
       <excludeFolder url="file://$MODULE_DIR$/apache-tomcat-9.0.7" />
       <excludeFolder url="file://$MODULE_DIR$/etc" />
