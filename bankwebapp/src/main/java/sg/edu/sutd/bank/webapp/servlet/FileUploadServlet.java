@@ -83,7 +83,7 @@ public class FileUploadServlet extends DefaultServlet{
                                     }
                                 }
                                 try {
-                                    
+
                                     ClientTransaction clientTransaction = new ClientTransaction();
                                     ClientInfo clientInfo = new ClientInfo();
                                     User user = new User(getUserId(request));
