@@ -26,3 +26,8 @@ $(function(){
     	}
     });
 });
+
+function validateUsername(username) {
+    var re = /^[a-z0-9]+$/i;
+    return re.test(username);
+}

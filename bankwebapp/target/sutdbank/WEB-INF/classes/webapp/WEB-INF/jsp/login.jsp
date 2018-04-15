@@ -43,12 +43,11 @@
 	        <div id="navbar" class="collapse navbar-collapse">
 	          <ul class="nav navbar-nav">
 	            <c:if test="${empty authenticatedUser}">
-	            	<li><a href="login">LOGIN</a></li>
-	            	<li class="header-text"> || </li>
-            	 	<li><a href="register">REGISTER</a></li>
+	            	<li><a href="login" style="font-size: 11px;">LOGIN</a></li>
+            	 	<li><a href="register" style="font-size: 11px;">REGISTER</a></li>
 	            </c:if>
 	            <c:if test="${not empty authenticatedUser}">
-	            	<li><a href="logout">Logout</a></li>
+	            	<li><a href="logout" style="font-size: 11px;">Logout</a></li>
 	            </c:if>
 	          </ul>
 	        </div><!--/.nav-collapse -->

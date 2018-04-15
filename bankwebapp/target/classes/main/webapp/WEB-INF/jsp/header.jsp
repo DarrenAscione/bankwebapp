@@ -16,13 +16,12 @@
 	        <div id="navbar" class="collapse navbar-collapse">
 	          <ul class="nav navbar-nav">
 	            <c:if test="${empty sessionScope.authenticatedUser}">
-	            	<li><a href="login">LOGIN</a></li>
-	            	<li class="header-text"> || </li>
-            	 	<li><a href="register">REGISTER</a></li>
+	            	<li><a href="login" style="font-size: 11px;">LOGIN</a></li>
+            	 	<li><a href="register" style="font-size: 11px;">REGISTER</a></li>
 	            </c:if>
 	            <c:if test="${not empty sessionScope.authenticatedUser}">
-					<li><a href="clientDashboard">HOME</a></li>
-					<li><a href="logout">LOGOUT</a></li>
+					<li><a href="clientDashboard" style="font-size: 11px;">HOME</a></li>
+					<li><a href="logout" style="font-size: 11px;">LOGOUT</a></li>
 	            </c:if>
 	          </ul>
 	        </div><!--/.nav-collapse -->

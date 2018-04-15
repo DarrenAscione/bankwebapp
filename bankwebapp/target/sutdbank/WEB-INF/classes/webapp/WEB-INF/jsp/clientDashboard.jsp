@@ -12,7 +12,7 @@
 		<%@include file="errorMessage.jsp"%>
 		<div id="accountBalance">
 			<h4>ACCOUNT BALANCE</h4>
-			<div><h1 style="color: slategray" class="amount">$${clientInfo.account.amount}</h1></div>
+			<div><h1 style="color: slategray; font-size: 70px;" class="amount">$${clientInfo.account.amount}</h1></div>
 		</div>
 		<div id="transHistory">
 			<h4>TRANSACTION HISTORY</h4>
