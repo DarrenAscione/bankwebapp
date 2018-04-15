@@ -2,8 +2,10 @@ package sg.edu.sutd.bank.webapp.servlet;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
 import java.util.Iterator;
 import java.util.List;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,10 +13,27 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import sg.edu.sutd.bank.webapp.commons.ServiceException;
+import sg.edu.sutd.bank.webapp.model.ClientInfo;
+import sg.edu.sutd.bank.webapp.model.ClientTransaction;
+import sg.edu.sutd.bank.webapp.model.User;
+import sg.edu.sutd.bank.webapp.service.ClientTransactionDAO;
+import sg.edu.sutd.bank.webapp.service.ClientTransactionDAOImpl;
+import sg.edu.sutd.bank.webapp.service.TransactionCodesDAO;
+import sg.edu.sutd.bank.webapp.service.TransactionCodesDAOImp;
 
-public class FileUploadServlet extends HttpServlet{
+import javax.servlet.RequestDispatcher;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+
+
+public class FileUploadServlet extends DefaultServlet{
 
     private static final long serialVersionUID = 1 ;
+    private ClientTransactionDAO clientTransactionDAO = new ClientTransactionDAOImpl();
+    private TransactionCodesDAO transactionCodesDAO = new TransactionCodesDAOImp();
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         doPost(request, response);
@@ -47,18 +66,47 @@ public class FileUploadServlet extends HttpServlet{
                     }
                 } else {
                     if (fileItem.getSize() > 0) {
+
                         String path = "/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/data/";
                         fileItem.write(new File(path + fileItem.getName()));
+
+                        try(BufferedReader br = new BufferedReader(new FileReader(path + fileItem.getName()))) {
+                            String line;
+                            while ((line = br.readLine()) != null) {
+                                String[] tokens = line.split(" ");
+                                try {
+                                    ClientTransaction clientTransaction = new ClientTransaction();
+                                    ClientInfo clientInfo = new ClientInfo();
+                                    User user = new User(getUserId(request));
+                                    clientTransaction.setUser(user);
+                                    clientInfo.setUser(user);
+                                    BigDecimal amount = new BigDecimal(tokens[2]);
+                                    clientTransaction.setAmount(amount);
+                                    clientTransaction.setTransCode(tokens[1]);
+                                    clientTransaction.setToAccountNum(tokens[3]);
+
+
+                                    if (transactionCodesDAO.validCode(tokens[1],clientInfo.getUser().getId())) {
+                                        transactionCodesDAO.updateUsage(tokens[1], clientInfo.getUser().getId());
+                                        clientTransactionDAO.create(clientTransaction);
+                                    }
+                                } catch (ServiceException e) {
+                                    sendError(request, e.getMessage());
+                                    forward(request, response);
+                                }
+                            }
+                            redirect(response, ServletPaths.WELCOME);
+
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            out.println("<script type='text/javascript'>");
-            out.println("window.location.href='index.jsp?filename="+file_name+"'");
-            out.println("</script>");
-            out.close();
         }
     }
+
+
 }

@@ -77,7 +77,7 @@
 			<%
 				String file_name=(String)request.getParameter("filename");
 				if(file_name!=null){
-					System.out.println(file_name+" File uploaded successfuly");
+					System.out.println(file_name+" File uploaded Successfully");
 				}
 			%>
 		</div>
