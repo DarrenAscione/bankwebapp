@@ -80,14 +80,14 @@ public class FileUploadServlet extends DefaultServlet{
                                     User user = new User(getUserId(request));
                                     clientTransaction.setUser(user);
                                     clientInfo.setUser(user);
-                                    BigDecimal amount = new BigDecimal(tokens[2]);
+                                    BigDecimal amount = new BigDecimal(tokens[1]);
                                     clientTransaction.setAmount(amount);
-                                    clientTransaction.setTransCode(tokens[1]);
-                                    clientTransaction.setToAccountNum(tokens[3]);
+                                    clientTransaction.setTransCode(tokens[0]);
+                                    clientTransaction.setToAccountNum(tokens[2]);
 
 
-                                    if (transactionCodesDAO.validCode(tokens[1],clientInfo.getUser().getId())) {
-                                        transactionCodesDAO.updateUsage(tokens[1], clientInfo.getUser().getId());
+                                    if (transactionCodesDAO.validCode(tokens[0],clientInfo.getUser().getId())) {
+                                        transactionCodesDAO.updateUsage(tokens[0], clientInfo.getUser().getId());
                                         clientTransactionDAO.create(clientTransaction);
                                     }
                                 } catch (ServiceException e) {
@@ -95,7 +95,7 @@ public class FileUploadServlet extends DefaultServlet{
                                     forward(request, response);
                                 }
                             }
-                            redirect(response, ServletPaths.WELCOME);
+                            redirect(response, ServletPaths.CLIENT_DASHBOARD_PAGE);
 
                         } catch (IOException e) {
                             e.printStackTrace();

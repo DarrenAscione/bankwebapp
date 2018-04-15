@@ -925,3 +925,8 @@
 0:0:0:0:0:0:0:1 - darren_ng_5 [15/Apr/2018:15:53:04 +0800] "POST /sutdbank/FileUploadServlet HTTP/1.1" 302 -
 0:0:0:0:0:0:0:1 - darren_ng_5 [15/Apr/2018:15:53:04 +0800] "GET /sutdbank/welcome HTTP/1.1" 200 2671
 0:0:0:0:0:0:0:1 - darren_ng_5 [15/Apr/2018:15:53:05 +0800] "GET /sutdbank/clientDashboard HTTP/1.1" 200 11418
+127.0.0.1 - - [15/Apr/2018:15:56:47 +0800] "GET /sutdbank HTTP/1.1" 302 -
+127.0.0.1 - - [15/Apr/2018:15:56:47 +0800] "GET /sutdbank/ HTTP/1.1" 302 -
+127.0.0.1 - - [15/Apr/2018:15:56:47 +0800] "GET /sutdbank/welcome HTTP/1.1" 200 2951
+127.0.0.1 - - [15/Apr/2018:15:56:47 +0800] "GET / HTTP/1.1" 302 -
+127.0.0.1 - - [15/Apr/2018:15:56:47 +0800] "GET /welcome HTTP/1.1" 200 2895
