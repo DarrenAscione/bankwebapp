@@ -30,7 +30,7 @@ import sg.edu.sutd.bank.webapp.model.User;
 public class ClientTransactionDAOImpl extends AbstractDAOImpl implements ClientTransactionDAO {
 
 	@Override
-	public void create(ClientTransaction clientTransaction) throws ServiceException {
+	public synchronized void create(ClientTransaction clientTransaction) throws ServiceException {
 		Connection conn = connectDB();
 		PreparedStatement ps;
         ResultSet rs = null;
@@ -111,7 +111,7 @@ public class ClientTransactionDAOImpl extends AbstractDAOImpl implements ClientT
 	}
 
 	@Override
-    public void updateSender(ClientTransaction transaction) throws ServiceException {
+    public synchronized void updateSender(ClientTransaction transaction) throws ServiceException {
         Connection conn = connectDB();
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -132,7 +132,7 @@ public class ClientTransactionDAOImpl extends AbstractDAOImpl implements ClientT
     }
 
     @Override
-    public void updateReceiver(ClientTransaction transaction) throws ServiceException {
+    public synchronized void updateReceiver(ClientTransaction transaction) throws ServiceException {
         Connection conn = connectDB();
 
         PreparedStatement ps = null;
@@ -154,7 +154,7 @@ public class ClientTransactionDAOImpl extends AbstractDAOImpl implements ClientT
     }
 
 	@Override
-	public void updateDecision(List<ClientTransaction> transactions) throws ServiceException {
+	public synchronized void updateDecision(List<ClientTransaction> transactions) throws ServiceException {
 		StringBuilder query = new StringBuilder("UPDATE client_transaction SET status = Case id ");
 		for (ClientTransaction trans : transactions) {
 			query.append(String.format("WHEN %d THEN '%s' ", trans.getId(), trans.getStatus().name()));

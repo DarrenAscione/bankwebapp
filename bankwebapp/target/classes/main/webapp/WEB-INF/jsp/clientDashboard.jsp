@@ -70,16 +70,9 @@
 			</form>
 			<h6>FILE UPLOAD</h6>
 			<form action="FileUploadServlet" enctype="multipart/form-data" method="post">
-				Enter File Name <input type="text" name="file_name"><br>
 				Select<input type="file" name="file2" /><br>
 				<input type="submit" value="upload" />
 			</form>
-			<%
-				String file_name=(String)request.getParameter("filename");
-				if(file_name!=null){
-					System.out.println(file_name+" File uploaded Successfully");
-				}
-			%>
 		</div>
 	</main>
   </body>

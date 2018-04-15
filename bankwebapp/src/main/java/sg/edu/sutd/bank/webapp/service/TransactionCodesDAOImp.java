@@ -27,7 +27,7 @@ import sg.edu.sutd.bank.webapp.commons.ServiceException;
 public class TransactionCodesDAOImp extends AbstractDAOImpl implements TransactionCodesDAO {
 
 	@Override
-	public void create(List<String> codes, int userId) throws ServiceException {
+	public synchronized void create(List<String> codes, int userId) throws ServiceException {
 		Connection conn = connectDB();
 		PreparedStatement ps;
 		try {
@@ -58,7 +58,7 @@ public class TransactionCodesDAOImp extends AbstractDAOImpl implements Transacti
 	}
 
 	@Override
-	public void updateUsage(String code, int userId) throws ServiceException {
+	public synchronized void updateUsage(String code, int userId) throws ServiceException {
 		Connection conn = connectDB();
 		PreparedStatement ps;
 		String acode = "\"" + code + "\"";
