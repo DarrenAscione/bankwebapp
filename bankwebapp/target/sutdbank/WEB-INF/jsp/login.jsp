@@ -47,7 +47,7 @@
             	 	<li><a href="register" style="font-size: 11px;">REGISTER</a></li>
 	            </c:if>
 	            <c:if test="${not empty authenticatedUser}">
-	            	<li><a href="logout" style="font-size: 11px;">Logout</a></li>
+	            	<li><a href="logout" style="font-size: 11px;">LOGOUT</a></li>
 	            </c:if>
 	          </ul>
 	        </div><!--/.nav-collapse -->

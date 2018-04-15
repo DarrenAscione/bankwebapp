@@ -633,3 +633,65 @@
  com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:43)
 15-Apr-2018 18:54:19.916 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/sutdbank.war]
 15-Apr-2018 18:54:20.376 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/sutdbank.war] has finished in [460] ms
+15-Apr-2018 18:57:44.210 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+15-Apr-2018 18:57:52.285 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/sutdbank]
+15-Apr-2018 18:57:52.292 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [sutdbank] registered the JDBC driver [com.mysql.jdbc.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+15-Apr-2018 18:57:52.294 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [sutdbank] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:43)
+15-Apr-2018 18:57:52.325 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/sutdbank.war]
+15-Apr-2018 18:57:52.723 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/sutdbank.war] has finished in [398] ms
+15-Apr-2018 19:07:25.314 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+15-Apr-2018 19:07:27.008 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/sutdbank]
+15-Apr-2018 19:07:27.013 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [sutdbank] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:43)
+15-Apr-2018 19:07:27.052 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/sutdbank.war]
+15-Apr-2018 19:07:27.474 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/sutdbank.war] has finished in [421] ms
+15-Apr-2018 19:17:17.696 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+15-Apr-2018 19:17:23.606 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/sutdbank]
+15-Apr-2018 19:17:23.610 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [sutdbank] registered the JDBC driver [com.mysql.jdbc.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+15-Apr-2018 19:17:23.611 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [sutdbank] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:43)
+15-Apr-2018 19:17:23.643 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/sutdbank.war]
+15-Apr-2018 19:17:24.047 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/sutdbank.war] has finished in [404] ms
+15-Apr-2018 19:22:45.853 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+15-Apr-2018 19:22:47.101 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/sutdbank]
+15-Apr-2018 19:22:47.107 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [sutdbank] registered the JDBC driver [com.mysql.jdbc.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+15-Apr-2018 19:22:47.107 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [sutdbank] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:43)
+15-Apr-2018 19:22:47.216 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/sutdbank.war]
+15-Apr-2018 19:22:48.001 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/sutdbank.war] has finished in [785] ms
+15-Apr-2018 19:24:10.427 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+15-Apr-2018 19:24:19.093 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/sutdbank]
+15-Apr-2018 19:24:19.099 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [sutdbank] registered the JDBC driver [com.mysql.jdbc.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+15-Apr-2018 19:24:19.100 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [sutdbank] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:43)
+15-Apr-2018 19:24:19.131 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/sutdbank.war]
+15-Apr-2018 19:24:19.816 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/sutdbank.war] has finished in [685] ms
+15-Apr-2018 19:25:08.084 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+15-Apr-2018 19:25:10.356 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/sutdbank]
+15-Apr-2018 19:25:10.361 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [sutdbank] registered the JDBC driver [com.mysql.jdbc.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+15-Apr-2018 19:25:10.362 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [sutdbank] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:43)
+15-Apr-2018 19:25:10.395 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/sutdbank.war]
+15-Apr-2018 19:25:11.129 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/sutdbank.war] has finished in [734] ms
+15-Apr-2018 19:26:11.840 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+15-Apr-2018 19:26:22.374 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/sutdbank]
+15-Apr-2018 19:26:22.380 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [sutdbank] registered the JDBC driver [com.mysql.jdbc.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+15-Apr-2018 19:26:22.381 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [sutdbank] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:43)
+15-Apr-2018 19:26:22.413 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/sutdbank.war]
+15-Apr-2018 19:26:22.788 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/sutdbank.war] has finished in [375] ms

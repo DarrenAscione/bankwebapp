@@ -24,11 +24,18 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import sg.edu.sutd.bank.webapp.commons.Helper;
 import sg.edu.sutd.bank.webapp.commons.ServiceException;
 import sg.edu.sutd.bank.webapp.model.ClientTransaction;
 import sg.edu.sutd.bank.webapp.model.User;
 import sg.edu.sutd.bank.webapp.service.*;
 import sg.edu.sutd.bank.webapp.model.ClientInfo;
+import java.text.Normalizer;
+import java.text.Normalizer.Form;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 @WebServlet(NEW_TRANSACTION)
 public class NewTransactionServlet extends DefaultServlet {
@@ -47,7 +54,13 @@ public class NewTransactionServlet extends DefaultServlet {
 			clientInfo.setUser(user);
 			BigDecimal amount = new BigDecimal(req.getParameter("amount"));
 			clientTransaction.setAmount(amount);
+
+			//Transcode may be malicious
 			String code = req.getParameter("transcode");
+			code = Helper.input_normalizer(code);
+			if (Helper.xss_match(code)) {
+				throw new ServletException("XSS Injection Attempt");
+			}
 			clientTransaction.setTransCode(code);
 			clientTransaction.setToAccountNum(req.getParameter("toAccountNum"));
 

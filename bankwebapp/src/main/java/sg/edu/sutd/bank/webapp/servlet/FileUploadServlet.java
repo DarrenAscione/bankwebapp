@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
+import java.rmi.ServerException;
 import java.util.Iterator;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -13,6 +14,7 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import sg.edu.sutd.bank.webapp.commons.Helper;
 import sg.edu.sutd.bank.webapp.commons.ServiceException;
 import sg.edu.sutd.bank.webapp.model.ClientInfo;
 import sg.edu.sutd.bank.webapp.model.ClientTransaction;
@@ -74,7 +76,14 @@ public class FileUploadServlet extends DefaultServlet{
                             String line;
                             while ((line = br.readLine()) != null) {
                                 String[] tokens = line.split(" ");
+                                for (int i=0; i < tokens.length; i++) {
+                                    tokens[i] = Helper.input_normalizer(tokens[i]);
+                                    if (Helper.xss_match(tokens[i])) {
+                                        throw new ServerException("XSS Attempt!");
+                                    }
+                                }
                                 try {
+                                    
                                     ClientTransaction clientTransaction = new ClientTransaction();
                                     ClientInfo clientInfo = new ClientInfo();
                                     User user = new User(getUserId(request));
