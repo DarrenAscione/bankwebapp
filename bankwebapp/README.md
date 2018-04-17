@@ -101,6 +101,8 @@ This step creates/overwrites the default schema `bankwebapp`.
   
 ## Introduction
 
+### Application Overview
+
 This report documents our work for the **50.531 Secure Software Engineering ** final project. In this project, we were distributed a running but incomplete web application for a bank - _bankwebapp_. This project is coded in _java_, using the _IntelliJ_ environment on the _Apache Tomcat 8.0_ server as _localhost_. The distributed project allows users to _register_ accounts and _login_. Additionally, there is a default username, _staff_1_ with administrative privileges. The key objectives for this project are
 
 1. Completion of the functionalities including transactions and batch transactions
@@ -109,8 +111,6 @@ This report documents our work for the **50.531 Secure Software Engineering ** f
 4. Testing the project's source codes for vulnerabilities.
 
 Additionally, we will apply USE cases and USE case diagrams to show demonstrate our direction and logic flow.
-
-### Application Overview
 
 ### Use Cases
 

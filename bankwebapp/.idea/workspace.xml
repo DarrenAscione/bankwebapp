@@ -93,12 +93,12 @@
         <entry file="file://$PROJECT_DIR$/Readme.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="6834">
+              <first_editor relative-caret-position="2065">
                 <caret line="402" column="67" lean-forward="false" selection-start-line="402" selection-start-column="67" selection-end-line="402" selection-end-column="67" />
                 <folding>
-                  <marker date="1523986507921" expanded="true" signature="12137:12341" ph="..." />
-                  <marker date="1523986507921" expanded="true" signature="12392:12554" ph="..." />
-                  <marker date="1523986507921" expanded="true" signature="13080:13199" ph="{...}" />
+                  <marker date="1523986690974" expanded="true" signature="12137:12341" ph="..." />
+                  <marker date="1523986690974" expanded="true" signature="12392:12554" ph="..." />
+                  <marker date="1523986690974" expanded="true" signature="13080:13199" ph="{...}" />
                 </folding>
               </first_editor>
               <second_editor />
@@ -801,7 +801,7 @@
       <workItem from="1523949018430" duration="541000" />
       <workItem from="1523949584669" duration="1408000" />
       <workItem from="1523951492804" duration="11721000" />
-      <workItem from="1523967833381" duration="5200000" />
+      <workItem from="1523967833381" duration="5317000" />
     </task>
     <servers />
   </component>
@@ -838,7 +838,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105209000" />
+    <option name="totallyTimeSpent" value="105326000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -1325,12 +1325,12 @@
     <entry file="file://$PROJECT_DIR$/Readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="6834">
+          <first_editor relative-caret-position="2065">
             <caret line="402" column="67" lean-forward="false" selection-start-line="402" selection-start-column="67" selection-end-line="402" selection-end-column="67" />
             <folding>
-              <marker date="1523986507921" expanded="true" signature="12137:12341" ph="..." />
-              <marker date="1523986507921" expanded="true" signature="12392:12554" ph="..." />
-              <marker date="1523986507921" expanded="true" signature="13080:13199" ph="{...}" />
+              <marker date="1523986690974" expanded="true" signature="12137:12341" ph="..." />
+              <marker date="1523986690974" expanded="true" signature="12392:12554" ph="..." />
+              <marker date="1523986690974" expanded="true" signature="13080:13199" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
