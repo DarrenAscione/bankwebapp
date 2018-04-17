@@ -20,3 +20,8 @@
 0:0:0:0:0:0:0:1 - - [16/Apr/2018:18:08:36 +0800] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 1129
 0:0:0:0:0:0:0:1 - - [16/Apr/2018:18:08:36 +0800] "GET /apple-touch-icon.png HTTP/1.1" 404 1117
 0:0:0:0:0:0:0:1 - - [16/Apr/2018:18:08:36 +0800] "GET /sutdbank/resources/img/sutd-logo.ico;jsessionid=C49A92D28C284512671A119BA76167ED HTTP/1.1" 200 7886
+127.0.0.1 - - [16/Apr/2018:19:30:11 +0800] "GET /sutdbank HTTP/1.1" 302 -
+127.0.0.1 - - [16/Apr/2018:19:30:11 +0800] "GET /sutdbank/ HTTP/1.1" 302 -
+127.0.0.1 - - [16/Apr/2018:19:30:11 +0800] "GET /sutdbank/welcome HTTP/1.1" 200 2953
+127.0.0.1 - - [16/Apr/2018:19:30:11 +0800] "GET / HTTP/1.1" 302 -
+127.0.0.1 - - [16/Apr/2018:19:30:11 +0800] "GET /welcome HTTP/1.1" 200 2895

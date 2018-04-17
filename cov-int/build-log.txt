@@ -1,0 +1,4 @@
+2018-04-16T12:52:27.561891Z|cov-build|18501|info|> [ERROR] System Integrity Protection is enabled. In order to use cov-build,
+2018-04-16T12:52:27.561891Z|cov-build|18501|info|>         this must be disabled. If you are confident that SIP has been 
+2018-04-16T12:52:27.561891Z|cov-build|18501|info|>         disabled, pass --no-sip-check to bypass this check.
+2018-04-16T12:52:27.561891Z|cov-build|18501|info|> 

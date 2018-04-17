@@ -155,11 +155,11 @@ This step creates/overwrites the default schema `bankwebapp`.
 |   |   |       ├── ServletPaths.java
 |   |   |       ├── StaffDashboardServlet.java
 |   |   |       └── TransactionCodeGenerator.java          
-|	|   ├── _resources
-|	|   └── _webapp
-|	|		├── resources
-|	|		|   └── js
-|	|		|       ├── login.js
+|   |   ├── _resources
+|   |   └── _webapp
+|   |       ├── resources
+|   |       |   └── js
+|   |       |       ├── login.js
 |	|		|       ├── register.js
 |	|		|       └── transaction.js
 |	|		├── WEB-INF
@@ -179,4 +179,52 @@ This step creates/overwrites the default schema `bankwebapp`.
 ├── pom.xml
 └── README.md
 ```
+
+
+
+## Testing Analysis
+
+### Overview
+
+**unit testing** is a software testing method by which individual units of source code, sets of one or more computer program modules together with associated control data, usage procedures, and operating procedures, are tested to determine whether they are fit for use.
+
+A unit test should test functionality in isolation. Side effects from other classes or the system should be eliminated for a unit test, if possible. Hence as such, with this definition in mind, the proper way of writing unit test cases should be applied. Code coverage provides a good insight as to how much testing has been done throughout the application. Several various unit testing techniques were applied, including parameterised testing, etc. 
+
+### JUnit
+
+As mentioned above, a unit test should test functionality in isolation. As such setter and getter methods are often if not always incorrectly written. A unit test method for a setter function should not call its corresponding getter method when applying assertion. This is also true for a test on the getter function. Because of this, the following test case has been written to demonstrate how proper unit testing should be carried out. 
+
+```java
+// How to properly test a getter function without calling a setter
+@Test  
+public void getUser() throws NoSuchFieldException, IllegalAccessException {  
+  final Field field = clientAccount.getClass().getDeclaredField("user");  
+  field.setAccessible(true);  
+  field.set(clientAccount, new User(12));  
+ final User result = clientAccount.getUser();  
+ final int id = result.getId();  
+  assertEquals("field wasn't retrieved properly", id, 12);  
+}
+```
+
+In the `getUser()` test class, we first set a variable `field` where we are getting the field value `user` which is a private variable in the `ClientAccount` model and is accessed and set through it's `getUser()` and `setUser()` methods. Because we are testing on the getter method, based on the principles of unit testing, it would not be correct to call a `setUser()` method in this test case. We can however se this field `field.setAccesible(true)` as `true` and this would allow us to set the corresponding field which in this case is `user` as ` field.set(clientAccount, new User(12)); `. From here, we can finally apply the method we are testing for which is `clientAccount.getUser()` and apply an assertion to see if these values matches.
+
+```java
+// How to properly test a setter function without calling a getter
+@Test  
+public void setUser() throws NoSuchFieldException, IllegalAccessException {  
+  //when  
+  clientAccount.setUser(new User(12));  
+  
+  //then  
+  final Field field = clientAccount.getClass().getDeclaredField("user");  
+  field.setAccessible(true);  
+  assertEquals("Fields didn't match", field.get(clientAccount), 12);  
+}
+```
+
+Likewise, the above code shows how a proper test case for a setter function should be written.
+
+Each of the Java classes in the Model module has a corresponding getter and setter method that must be tested as shown above. These test cases have been written and you can refer them in the following directory: `<BANKWEBAPP>/src/test/java/sg.edu.sutd.bank.webapp/model`.
+
 
