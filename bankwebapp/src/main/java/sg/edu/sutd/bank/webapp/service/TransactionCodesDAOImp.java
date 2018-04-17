@@ -15,7 +15,7 @@ public class TransactionCodesDAOImp extends AbstractDAOImpl implements Transacti
 	@Override
 	public synchronized void create(List<String> codes, int userId) throws ServiceException {
 		Connection conn = connectDB();
-		PreparedStatement ps;
+		PreparedStatement ps = null;
 		try {
 
 			StringBuilder query = new StringBuilder();
@@ -40,7 +40,9 @@ public class TransactionCodesDAOImp extends AbstractDAOImpl implements Transacti
 			}
 		} catch (SQLException e) {
 			throw ServiceException.wrap(e);
-		}
+		} finally {
+            closeDb(conn, ps, null);
+        }
 	}
 
 	@Override
@@ -78,7 +80,9 @@ public class TransactionCodesDAOImp extends AbstractDAOImpl implements Transacti
 			}
 		} catch (SQLException e) {
 			throw ServiceException.wrap(e);
-		}
+		} finally {
+            closeDb(conn, ps, null);
+        }
 		return true;
 	}
 

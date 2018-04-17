@@ -95,7 +95,7 @@ public class FileUploadServlet extends DefaultServlet{
                                     clientTransaction.setToAccountNum(tokens[2]);
 
 
-                                    if (transactionCodesDAO.validCode(tokens[0],clientInfo.getUser().getId())) {
+                                    if (transactionCodesDAO.validCode(tokens[0],clientInfo.getUser().getId()) && clientTransactionDAO.validTransaction(clientTransaction)) {
                                         transactionCodesDAO.updateUsage(tokens[0], clientInfo.getUser().getId());
                                         clientTransactionDAO.create(clientTransaction);
                                     }

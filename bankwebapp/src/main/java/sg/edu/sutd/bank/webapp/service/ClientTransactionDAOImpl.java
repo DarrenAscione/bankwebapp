@@ -32,7 +32,7 @@ public class ClientTransactionDAOImpl extends AbstractDAOImpl implements ClientT
 	@Override
 	public synchronized void create(ClientTransaction clientTransaction) throws ServiceException {
 		Connection conn = connectDB();
-		PreparedStatement ps;
+		PreparedStatement ps = null;
         ResultSet rs = null;
 
         try {
@@ -47,7 +47,9 @@ public class ClientTransactionDAOImpl extends AbstractDAOImpl implements ClientT
 
 		} catch (SQLException e) {
 			throw ServiceException.wrap(e);
-		}
+		} finally {
+            closeDb(conn, ps, rs);
+        }
 	}
 
 	@Override
@@ -204,6 +206,8 @@ public class ClientTransactionDAOImpl extends AbstractDAOImpl implements ClientT
 
         } catch (SQLException e) {
             throw ServiceException.wrap(e);
+        } finally {
+            closeDb(conn, ps, rs);
         }
 
     }
