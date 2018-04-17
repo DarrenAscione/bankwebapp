@@ -101,6 +101,15 @@ This step creates/overwrites the default schema `bankwebapp`.
   
 ## Introduction
 
+This report documents our work for the **50.531 Secure Software Engineering ** final project. In this project, we were distributed a running but incomplete web application for a bank - _bankwebapp_. This project is coded in _java_, using the _IntelliJ_ environment on the _Apache Tomcat 8.0_ server as _localhost_. The distributed project allows users to _register_ accounts and _login_. Additionally, there is a default username, _staff_1_ with administrative privileges. The key objectives for this project are
+
+1. Completion of the functionalities including transactions and batch transactions
+2. Implementation of security features
+3. Testing the project's source codes for defects
+4. Testing the project's source codes for vulnerabilities.
+
+Additionally, we will apply USE cases and USE case diagrams to show demonstrate our direction and logic flow.
+
 ### Application Overview
 
 ### Use Cases
@@ -188,6 +197,13 @@ This step creates/overwrites the default schema `bankwebapp`.
 ### Features Implementation
 
 #### Onboarding New User
+
+One of the key features we have implemented beyond the scope of the deliverables and rubrics we have added is a stringent requirement for registration credentials. We would require that for registration, users
+
+1. Use a password with at least one uppercase, one digit (0-9), one symbol and at least 8 characters long. 
+2. Use a valid email address.
+
+Users would require a valid username, password and email address for login. As these are standard security implementations adopted by most public platforms, we opine that it was a good practice to implement this for our project as well. You may refer to the _Security Implementations_ section below for a full discussion.
 
 #### Single Transaction
 
@@ -304,7 +320,7 @@ try {
 
 The project utilises Java's `PreparedStatement` class and binds variables (i.e '?') and the corresponding `setString` methods, SQL injection can be easily prevented.
 
-## Testing Analysis
+## Testing
 
 ### Overview
 
@@ -370,3 +386,18 @@ User keys in wrong password and/or username 3 times.                            
 
 
 
+## Analysis
+
+Static analysis refers to the analysis of computer programs without actual execution. Typically, the uses of static analysis range from detecting coding errors to verifying formal methods. For our purposes, static analysis aids us in finding code vulnerabilities and security defects. We have adopted _Coverity Scan_ as our static analysis tool.
+
+### Coverity Report
+
+To use Coverity Scan, we download their _zip_ package _cov-analysis-win64-2017.07.zip_ from https://scan.coverity.com/download?tab=java. The procedure requires two main steps:
+
+1. Register an account and the project at their website https://scan.coverity.com/. Users may also login with their _Github_ user credentials.
+2. Build the project log via the said zip package above. This step less trivial, and requires more time to set up. The coverity website instructs us to first to add the \bin directory in the zip package to our _path_. To do this, we run the _Edit the system environment variables_ utility in the _Windows Control Panel_. We would also need to add the _Apache Maven_ tool and _Java Development Kit_(JDK (not JRE)) compiler to to system path. Finally, we access the bankwebapp project directory with a _cmd_ shell, and use `mvn clean` to clean up undesirable units or steps and `cov-build --dir cov-int mvn -DskipTests=true compile` to build logs. A folder _cov-int_ will be added to the project directory. We compress this folder, and upload it to https://scan.coverity.com/projects/project_link?tab=overview . 
+
+We would then obtain the following summary.
+![https://imgur.com/abf1xow](image.png)
+//still figuring out how to upload images. 
+It will require up to 48 business hours to receive the full report.
