@@ -21,6 +21,7 @@
 		   + [Onboarding New User](#onboarding-new-user)
 		   + [New Transaction](#new-transaction)
 			   + [Single Transaction](#single-transaction)
+			   + [Batch Upload](#batch-upload)
 	  + [Security Enhancement](#security-enhancement)
 		  + [Client-Side Validation](#client-side-validation)
 			  + [Input Sanitization](#input-sanitization)
@@ -32,6 +33,10 @@
   + [Coverity Scan Analysis](#coverity-scan-analysis)
 	 + [Results](#results)
 	 + [Testing Analysis](#testing-analysis)
+		 + [Overview](#overview)
+		 + [Black-Box Test Case](#black-box-test-case)
+		 + [JUnit](#junit)
+		 + [Mocking Objects for Isolation Testing](#mocking-objects-for-isolation-testing)
  + [Conclusion](#conclusion)
 
 ## Pre-requisites  
@@ -155,11 +160,11 @@ This step creates/overwrites the default schema `bankwebapp`.
 |   |   |       ├── ServletPaths.java
 |   |   |       ├── StaffDashboardServlet.java
 |   |   |       └── TransactionCodeGenerator.java          
-|   |   ├── _resources
-|   |   └── _webapp
-|   |       ├── resources
-|   |       |   └── js
-|   |       |       ├── login.js
+|	|   ├── _resources
+|	|   └── _webapp
+|	|		├── resources
+|	|		|   └── js
+|	|		|       ├── login.js
 |	|		|       ├── register.js
 |	|		|       └── transaction.js
 |	|		├── WEB-INF
@@ -175,12 +180,129 @@ This step creates/overwrites the default schema `bankwebapp`.
 |	|		|   |   └── welcome.jsp
 |	|		|   └── web.xml
 |	|		└── index.jsp
-| └── test
+|   └── test
 ├── pom.xml
 └── README.md
 ```
 
+### Features Implementation
 
+#### Onboarding New User
+
+#### Single Transaction
+
+For the single transaction functionality, the `clientTransactionDAO`interface has been modified to include the following methods:
+
+```java
+public interface ClientTransactionDAO {  
+  
+  void create(ClientTransaction clientTransaction) throws ServiceException;  
+  
+  List<ClientTransaction> load(User user) throws ServiceException;  
+  List<ClientTransaction> loadWaitingList() throws ServiceException;  
+  
+ void updateDecision(List<ClientTransaction> transactions) throws ServiceException;  
+  
+ void updateReceiver(ClientTransaction transaction) throws ServiceException;  
+  
+ void updateSender(ClientTransaction transaction) throws ServiceException;  
+  
+  Boolean validTransaction(ClientTransaction transaction) throws ServiceException;  
+  
+}
+```
+
+The method `validTransaction()` serves as a check to see if the transaction made by the user is a valid transaction **if and only if the user has enough money to transfer**. This is done by comparing the amount to be transferred against the user's current balance.
+
+```java
+@Override  
+  public synchronized Boolean validTransaction(ClientTransaction transaction) throws ServiceException {  
+  Connection conn = connectDB();  
+  PreparedStatement ps = null;  
+  ResultSet rs = null;  
+ try {  
+  ps = prepareStmt(conn, "SELECT amount FROM client_account WHERE user_id = ?");  
+ int idx = 1;  
+  ps.setString(idx++, String.valueOf(transaction.getUser().getId()));  
+  rs = ps.executeQuery();  
+ if (rs.next()) {  
+  BigDecimal current_amount = new BigDecimal(rs.getInt(1));  
+ return transaction.getAmount().compareTo(current_amount) < 0;  
+  } else {  
+  throw new SQLException("no data found");  
+  }  
+  
+ } catch (SQLException e) {  
+  throw ServiceException.wrap(e);  
+  } finally {  
+  closeDb(conn, ps, rs);  
+  }  
+ }
+```
+
+Moreover, the `TransactionCodesDAO` interface has been updated to include the `validCode()` and `updateUsage()` 
+
+
+#### Batch Upload
+
+### Security Enhancement
+
+#### Client-Side Validation
+
+A helper class is written to hold common methods of input sanitation that is used throughout the application whenever an input is processed. This helper class helps to prevent the possible SQL and XSS injections into the application. Because user inputs are thought to be insecure and are used throughout the application whenever a `DAO` object needs to either update or select from the database, placing these methods in a common module allows it to be used throughout the application.
+
+On top of that, javascript is used as a client-side validation to prevent the user from inputting certain values. The javascript class contains methods such as `validateAmount` and `validateEmail` to ensure that the user input allows a restricted pattern of regular expression. 
+
+##### User Input Limitations
+
+A great way to prevent injection attacks is to limit the input space of the user. In the provided skeleton application, we can see that the user is able to key in alphanumeric characters into the amount section of the new transaction page. This vulnerability allows users to key in irrelevant characters that may allow some form of an injection attack. To prevent this, the form used in the `.jsp` classes need to be sanitised to only allow its intended set of possible inputs.
+
+In the `newTransaction.jsp`, the form type has been change to limit the user to only key in numeric characters.
+
+```html
+<div id="input-group-toAccount" class="form-group">  
+ <label for="toAccountNum" class="control-label">To (account number)</label>  
+ <input type="number" class="form-control" id="toAccountNum" name="toAccountNum" placeholder="To Account Number">  
+</div>  
+<div id="input-group-amount" class="form-group">  
+ <label for="amount" class="control-label">Amount</label>  
+ <input type="number" class="form-control" id="amount" name="amount" placeholder="amount">  
+</div>
+```
+
+##### JavaScript Validation Methods
+
+Javascript is used as a form of client-side validation to prevent the user from injecting malicious code through an input form. The javascipt functions serve as a first line of defence in sanitising and limiting the input space of the user. Methods such as `validateAmount`  prevents the user from setting a value too small while methods such as `validatePassword` ensures that the user follows a strict set of regular expression.
+
+```javascript
+function validatePassword(password) {  
+  var re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}/;  
+ return re.test(password)  
+}
+```
+ In this case, the password of the user is set to be at least 8 characters long with at least one numeric, one symbol and one capital character in order for it to be a valid password. This increases the security of the user's account from brute force attack on password trials.
+
+
+
+
+
+#### Server-Side Validation 
+
+##### SQL Injection Prevention
+
+In the project, SQL queries are used in the following files, `ClientTransactionDAO`, `ClientTransactionDAOImpl`, `UserDAOImpl`, `ClientInfoDAOImpl`, `TransactionCodesDAOImp`, `UserRoleDAOImpl`. In these Database Access Object java classes, the `PreparedStaement`object is used. This represents a precompiled SQL statement that can be executed multiple times without having to recompile for every execution. The code is not vulnerable to SQL injection because it does not use dynamic queries to concatenate malicious data to the query itself. In the code snippet of the java class `UserRoleAOImpl`, we can see that it correctly uses parameterised queries. 
+
+``` java
+try {
+			ps = prepareStmt(conn, "INSERT INTO user_role(user_name, role) VALUES(?,?)");
+			int idx = 1;
+			ps.setString(idx++, userRole.getUser().getUserName());
+			ps.setString(idx++, userRole.getRole().name());
+			executeInsert(userRole, ps);
+		}
+```
+
+The project utilises Java's `PreparedStatement` class and binds variables (i.e '?') and the corresponding `setString` methods, SQL injection can be easily prevented.
 
 ## Testing Analysis
 
@@ -226,5 +348,25 @@ public void setUser() throws NoSuchFieldException, IllegalAccessException {
 Likewise, the above code shows how a proper test case for a setter function should be written.
 
 Each of the Java classes in the Model module has a corresponding getter and setter method that must be tested as shown above. These test cases have been written and you can refer them in the following directory: `<BANKWEBAPP>/src/test/java/sg.edu.sutd.bank.webapp/model`.
+
+
+### Black-Box Test Case
+
+| TestID                 | Description                                                                                                                                                                                                                            | Expected Results                                                                                                                                      | Actual Results |
+|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|
+| LoginUser1             | Precondition:  User at login Page of Web Application. Currently no user logged in. Waiting for user to key in username and password. User1: guest Password1: Password!12345                                                                     | BankAccount                                                                                                                                           |                |
+| LoginUser1.1           | Precondition:  Login Failed. User keys in wrong password and/or username once                                                                                                                                                          | Savings, Investments                                                                                                                                  |                |
+| LoginUser1.2           | Precondition: Login Failed thrice. 
+User keys in wrong password and/or username 3 times.                                                                                                                                                | Pop-up showing warning is displayed. User unable to key in username/password for the next 1 minute.                                                   |                |
+| LoginUser1.3           | Precondition: Login Successful. User keys in correct password and username combination.                                                                                                                                                | User is redirected to main dashboard page.                                                                                                            |                |
+| Transaction2           | Precondition: User has successfully logged into his/her account. User is at transaction tab. User1: guest Password1: guest Account Balance: 100                                                                                        | User is at the transaction tab of the dashboard page.                                                                                                 |                |
+| Transaction2.1         | Precondition:  Transaction2 has passed User1. User1 makes a transaction of -$50.                                                                                                                                                       | User account balance updates to $50. User transaction history updates to include latest transaction. User is brought back to transaction history tab. |                |
+| Transaction2.2         | Precondition:  Transaction2 has passed User1. User1 makes a transaction of -$120 and fails.                                                                                                                                            | User receives alert message to state balance not enough. User is taken back to transaction tab.                                                       |                |
+| TextFileTransaction3   | Precondition: User has successfully logged into his/her account. User is at transaction tab. User selects text file upload option.  User1: guest Password1: guest Account Balance: 100 Text File Format: .txt                          | User is at the transaction tab of the dashboard page and uploads a .txt file                                                                          |                |
+| TextFileTransaction3.1 | Precondition:TextFileTransaction3 has passed User1. User1 uploads a .txt file and is parsed into the browser successfully of transaction -$50.  User1: guest Password1: guestAccount  Balance: 100 Text File Format: .txt Amount: -$50 | User account balance updates to $50. User transaction history updates to include latest transaction. User is brought back to transaction history tab. |                |
+| TextFileTransaction3.2 | Precondition:TextFileTransaction3 has passed User1. User1 uploads a .txt file and is parsed into the browser unsuccessfully.  User1: guest Password1: guest Account Balance: 100 Text File Format: .txt Amount: sdfkdjfsdf             | User receives alert message that parsing of .txt file failed. User is brought back to transaction tab.                                                |                |
+| TextFileTransaction3.3 | Precondition:TextFileTransaction3 has passed User1. User1 uploads a .pdf file and is parsed into the browser unsuccessfully.  User1: guest Password1: guest Account Balance: 100 Text File Format: .pdf                                | User receives alert message that parsing of .txt file failed. User is brought back to transaction tab.                                                |                |
+|                        |                                                                                                                                                                                                                                        |                                                                                                                                                       |                |
+
 
 

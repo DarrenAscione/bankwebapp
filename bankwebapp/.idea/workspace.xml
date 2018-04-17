@@ -70,7 +70,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/service/ClientTransactionDAOImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="265">
-              <caret line="194" column="13" lean-forward="true" selection-start-line="194" selection-start-column="13" selection-end-line="194" selection-end-column="13" />
+              <caret line="194" column="13" lean-forward="false" selection-start-line="194" selection-start-column="13" selection-end-line="194" selection-end-column="13" />
               <folding>
                 <marker date="1523959284475" expanded="true" signature="2186:2236" ph="SELECT * FRO... client_transaction" />
                 <marker date="1523959284475" expanded="true" signature="3196:3249" ph="SELECT * FRO... client_transaction" />
@@ -83,7 +83,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/service/ClientInfoDAOImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="896">
-              <caret line="109" column="51" lean-forward="true" selection-start-line="109" selection-start-column="51" selection-end-line="109" selection-end-column="51" />
+              <caret line="109" column="51" lean-forward="false" selection-start-line="109" selection-start-column="51" selection-end-line="109" selection-end-column="51" />
               <folding>
                 <marker date="1523343450804" expanded="true" signature="2219:2311" ph="SELECT acc.*... client_info" />
                 <marker date="1523343450804" expanded="true" signature="3559:3701" ph="SELECT info.... client_info" />
@@ -96,7 +96,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/service/ClientTransactionDAO.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="408">
-              <caret line="42" column="1" lean-forward="true" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
+              <caret line="42" column="1" lean-forward="false" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -114,12 +114,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TransactionCodesDAOImp.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TransactionCodesDAOImp.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/service/TransactionCodesDAOImp.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="674">
               <caret line="85" column="20" lean-forward="false" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="20" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Readme.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Readme.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="796">
+                <caret line="372" column="0" lean-forward="true" selection-start-line="372" selection-start-column="0" selection-end-line="372" selection-end-column="0" />
+                <folding>
+                  <marker date="1523972702846" expanded="true" signature="10607:10811" ph="..." />
+                  <marker date="1523972702846" expanded="true" signature="10862:11024" ph="..." />
+                  <marker date="1523972702846" expanded="true" signature="11550:11669" ph="{...}" />
+                </folding>
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -134,21 +151,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClientDashboardServlet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/servlet/ClientDashboardServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="45" column="5" lean-forward="false" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="transaction.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/transaction.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="500">
-              <caret line="40" column="4" lean-forward="true" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
+              <caret line="40" column="4" lean-forward="false" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -168,7 +175,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/pageHeader.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="15" column="40" lean-forward="true" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
+              <caret line="15" column="40" lean-forward="false" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -260,7 +267,6 @@
         <option value="$PROJECT_DIR$/src/test/sg/edu/sutd/bank/webapp/commons/StringUtilsTest.java" />
         <option value="$PROJECT_DIR$/src/test/sg/edu/sutd/bank/webapp/model/AbstractIdEntityTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/sg/edu/sg/edu/sutd/bank/webapp/model/ClientAccountTest.java" />
-        <option value="$PROJECT_DIR$/Readme.md" />
         <option value="$PROJECT_DIR$/src/test/java/sg/edu/sutd/bank/webapp/sg/edu/sutd/bank/webapp/servlet/NewTransactionServletTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/sg/edu/sutd/bank/webapp/model/AbstractIdEntityTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/sg/edu/sutd/bank/webapp/commons/HelperTest.java" />
@@ -281,6 +287,7 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/servlet/FileUploadServlet.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/clientDashboard.jsp" />
+        <option value="$PROJECT_DIR$/Readme.md" />
       </list>
     </option>
   </component>
@@ -797,7 +804,7 @@
       <workItem from="1523949018430" duration="541000" />
       <workItem from="1523949584669" duration="1408000" />
       <workItem from="1523951492804" duration="11721000" />
-      <workItem from="1523967833381" duration="4193000" />
+      <workItem from="1523967833381" duration="4266000" />
     </task>
     <servers />
   </component>
@@ -834,7 +841,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104202000" />
+    <option name="totallyTimeSpent" value="104275000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -988,17 +995,6 @@
         <state relative-caret-position="204">
           <caret line="25" column="67" lean-forward="false" selection-start-line="25" selection-start-column="67" selection-end-line="25" selection-end-column="67" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Readme.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="17">
-            <caret line="161" column="20" lean-forward="false" selection-start-line="161" selection-start-column="20" selection-end-line="161" selection-end-column="20" />
-            <folding />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>
@@ -1255,7 +1251,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/pageHeader.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="15" column="40" lean-forward="true" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
+          <caret line="15" column="40" lean-forward="false" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
           <folding />
         </state>
       </provider>
@@ -1287,7 +1283,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/transaction.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="500">
-          <caret line="40" column="4" lean-forward="true" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
+          <caret line="40" column="4" lean-forward="false" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -1305,7 +1301,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/service/ClientTransactionDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
-          <caret line="42" column="1" lean-forward="true" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
+          <caret line="42" column="1" lean-forward="false" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -1313,7 +1309,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/service/ClientTransactionDAOImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="265">
-          <caret line="194" column="13" lean-forward="true" selection-start-line="194" selection-start-column="13" selection-end-line="194" selection-end-column="13" />
+          <caret line="194" column="13" lean-forward="false" selection-start-line="194" selection-start-column="13" selection-end-line="194" selection-end-column="13" />
           <folding>
             <marker date="1523959284475" expanded="true" signature="2186:2236" ph="SELECT * FRO... client_transaction" />
             <marker date="1523959284475" expanded="true" signature="3196:3249" ph="SELECT * FRO... client_transaction" />
@@ -1324,7 +1320,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/service/ClientInfoDAOImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="896">
-          <caret line="109" column="51" lean-forward="true" selection-start-line="109" selection-start-column="51" selection-end-line="109" selection-end-column="51" />
+          <caret line="109" column="51" lean-forward="false" selection-start-line="109" selection-start-column="51" selection-end-line="109" selection-end-column="51" />
           <folding>
             <marker date="1523343450804" expanded="true" signature="2219:2311" ph="SELECT acc.*... client_info" />
             <marker date="1523343450804" expanded="true" signature="3559:3701" ph="SELECT info.... client_info" />
@@ -1337,6 +1333,21 @@
         <state relative-caret-position="674">
           <caret line="85" column="20" lean-forward="false" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="20" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Readme.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="796">
+            <caret line="372" column="0" lean-forward="true" selection-start-line="372" selection-start-column="0" selection-end-line="372" selection-end-column="0" />
+            <folding>
+              <marker date="1523972702846" expanded="true" signature="10607:10811" ph="..." />
+              <marker date="1523972702846" expanded="true" signature="10862:11024" ph="..." />
+              <marker date="1523972702846" expanded="true" signature="11550:11669" ph="{...}" />
+            </folding>
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
