@@ -1,3 +1,6 @@
+package sg.edu.sutd.bank.webapp.commons;
+
+
 import org.junit.Test;
 import sg.edu.sutd.bank.webapp.commons.Helper;
 

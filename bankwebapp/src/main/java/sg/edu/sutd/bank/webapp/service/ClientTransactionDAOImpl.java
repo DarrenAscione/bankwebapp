@@ -185,4 +185,27 @@ public class ClientTransactionDAOImpl extends AbstractDAOImpl implements ClientT
 		}
 	}
 
+	@Override
+    public synchronized Boolean validTransaction(ClientTransaction transaction) throws  ServiceException {
+        Connection conn = connectDB();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+	    try {
+            ps = prepareStmt(conn, "SELECT amount FROM client_account WHERE user_id = ?");
+            int idx = 1;
+			ps.setString(idx++, String.valueOf(transaction.getUser().getId()));
+			rs = ps.executeQuery();
+			if (rs.next()) {
+                BigDecimal current_amount = new BigDecimal(rs.getInt(1));
+                return transaction.getAmount().compareTo(current_amount) < 0;
+            } else {
+			    throw new SQLException("no data found");
+            }
+
+        } catch (SQLException e) {
+            throw ServiceException.wrap(e);
+        }
+
+    }
+
 }

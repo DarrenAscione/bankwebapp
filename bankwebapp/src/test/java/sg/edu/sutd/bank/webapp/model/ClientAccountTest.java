@@ -1,3 +1,4 @@
+package sg.edu.sutd.bank.webapp.model;
 
 import org.junit.Test;
 import sg.edu.sutd.bank.webapp.model.ClientAccount;

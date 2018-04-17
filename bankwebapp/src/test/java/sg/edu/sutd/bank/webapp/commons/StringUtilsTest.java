@@ -1,3 +1,4 @@
+package sg.edu.sutd.bank.webapp.commons;
 
 import org.junit.Before;
 import org.junit.Test;

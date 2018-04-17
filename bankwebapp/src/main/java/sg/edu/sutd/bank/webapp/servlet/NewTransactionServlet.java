@@ -64,12 +64,12 @@ public class NewTransactionServlet extends DefaultServlet {
 			clientTransaction.setTransCode(code);
 			clientTransaction.setToAccountNum(req.getParameter("toAccountNum"));
 
-			if (transactionCodesDAO.validCode(code,clientInfo.getUser().getId())) {
+			if (transactionCodesDAO.validCode(code,clientInfo.getUser().getId()) && clientTransactionDAO.validTransaction(clientTransaction)) {
 				transactionCodesDAO.updateUsage(code, clientInfo.getUser().getId());
 				clientTransactionDAO.create(clientTransaction);
 				redirect(resp, ServletPaths.CLIENT_DASHBOARD_PAGE);
 			} else {
-				throw new ServletException("wrong");
+				throw new ServletException("Code is invalid or Account does not have enough Balance");
 			}
 		} catch (ServiceException e) {
 			sendError(req, e.getMessage());
