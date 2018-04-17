@@ -67,7 +67,10 @@ public class FileUploadServlet extends DefaultServlet{
                         }
                     }
                 } else {
-                    if (fileItem.getSize() > 0) {
+                    if (fileItem.getSize() > 0 && fileItem.getSize() < 100) {
+                        if (!fileItem.getName().contains(".txt")) {
+                            throw new Exception("Wrong Format");
+                        }
 
                         String path = "/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/data/";
                         fileItem.write(new File(path + fileItem.getName()));

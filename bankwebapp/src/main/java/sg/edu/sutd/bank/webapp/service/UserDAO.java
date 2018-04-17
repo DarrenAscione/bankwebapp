@@ -29,4 +29,6 @@ public interface UserDAO {
 
 	void updateDecision(List<User> users) throws ServiceException;
 
+	void blockUser(User user) throws ServiceException;
+
 }

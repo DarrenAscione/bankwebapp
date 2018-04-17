@@ -12,7 +12,7 @@
 		<%@include file="errorMessage.jsp"%>
 		<div id="accountBalance">
 			<h4>ACCOUNT BALANCE</h4>
-			<div><h1 style="color: slategray; font-size: 70px;" class="amount">$${clientInfo.account.amount}</h1></div>
+			<div><h1 style="color: slategray; font-size: 80px;">$${clientInfo.account.amount}</h1></div>
 		</div>
 		<div id="transHistory">
 			<h4>TRANSACTION HISTORY</h4>
@@ -69,9 +69,9 @@
 				<button id="createTransBtn" type="submit" class="btn btn-default">New Transaction</button>
 			</form>
 			<h6>FILE UPLOAD</h6>
-			<form action="FileUploadServlet" enctype="multipart/form-data" method="post">
-				Select<input type="file" name="file2" /><br>
-				<input type="submit" value="upload" />
+			<form action="FileUploadServlet" enctype="multipart/form-data" method="post" id="file-upload">
+				Select<input type="file" name="file2" id="fileName" /><br>
+				<input type="submit" value="upload" id="fileUploadBtn" />
 			</form>
 		</div>
 	</main>

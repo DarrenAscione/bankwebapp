@@ -21,6 +21,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.mockito.internal.matchers.Null;
 import sg.edu.sutd.bank.webapp.commons.ServiceException;
 import sg.edu.sutd.bank.webapp.model.User;
 
@@ -68,7 +69,25 @@ public class UserDAOImpl extends AbstractDAOImpl implements UserDAO {
 		}
 	}
 
-	/**
+	@Override
+    public void blockUser(User user) throws ServiceException {
+        Connection conn = connectDB();
+        PreparedStatement ps = null;
+        try {
+            ps = prepareStmt(conn, "UPDATE status = BLOCKED WHERE user_name = ?");
+            int idx = 1;
+            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            ps.setString(idx++, user.getUserName());
+            executeUpdate(ps);
+        } catch (SQLException e) {
+            throw ServiceException.wrap(e);
+        } finally {
+            closeDb(conn, ps, null);
+        }
+    }
+
+
+    /**
 	 * UPDATE config
 		   SET config_value = CASE config_name 
 		                      WHEN 'name1' THEN 'value' 
