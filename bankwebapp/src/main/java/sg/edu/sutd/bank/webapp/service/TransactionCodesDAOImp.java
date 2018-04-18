@@ -48,7 +48,7 @@ public class TransactionCodesDAOImp extends AbstractDAOImpl implements Transacti
 	@Override
 	public synchronized void updateUsage(String code, int userId) throws ServiceException {
 		Connection conn = connectDB();
-		PreparedStatement ps;
+		PreparedStatement ps = null;
 		String acode = "\"" + code + "\"";
 		try {
 			String query = String.format("UPDATE transaction_code SET used = 1 WHERE code=%s",acode);
@@ -57,10 +57,10 @@ public class TransactionCodesDAOImp extends AbstractDAOImpl implements Transacti
 			if (rowNum == 0) {
 				throw new SQLException("Update Failed, the code has expired!!");
 			}
-
-
 		} catch (SQLException e) {
 			throw ServiceException.wrap(e);
+		} finally {
+			closeDb(conn, ps, null);
 		}
 
 	}

@@ -1,0 +1,207 @@
+18-Apr-2018 19:30:24.302 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/9.0.7
+18-Apr-2018 19:30:24.305 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Apr 3 2018 19:53:05 UTC
+18-Apr-2018 19:30:24.305 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         9.0.7.0
+18-Apr-2018 19:30:24.305 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Mac OS X
+18-Apr-2018 19:30:24.305 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.13.3
+18-Apr-2018 19:30:24.305 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          x86_64
+18-Apr-2018 19:30:24.305 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre
+18-Apr-2018 19:30:24.305 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_161-b12
+18-Apr-2018 19:30:24.305 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+18-Apr-2018 19:30:24.305 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7
+18-Apr-2018 19:30:24.305 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7
+18-Apr-2018 19:30:24.307 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/Users/darrenng/desktop/project/bankwebapp/apache-tomcat-9.0.7/conf/logging.properties
+18-Apr-2018 19:30:24.307 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+18-Apr-2018 19:30:24.307 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+18-Apr-2018 19:30:24.307 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+18-Apr-2018 19:30:24.307 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+18-Apr-2018 19:30:24.308 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+18-Apr-2018 19:30:24.308 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/Users/darrenng/desktop/project/bankwebapp/apache-tomcat-9.0.7
+18-Apr-2018 19:30:24.308 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/Users/darrenng/desktop/project/bankwebapp/apache-tomcat-9.0.7
+18-Apr-2018 19:30:24.308 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/Users/darrenng/desktop/project/bankwebapp/apache-tomcat-9.0.7/temp
+18-Apr-2018 19:30:24.308 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/darrenng/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+18-Apr-2018 19:30:24.407 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+18-Apr-2018 19:30:24.422 SEVERE [main] org.apache.catalina.util.LifecycleBase.handleSubClassException Failed to initialize component [Connector[HTTP/1.1-8080]]
+ org.apache.catalina.LifecycleException: Protocol handler initialization failed
+	at org.apache.catalina.connector.Connector.initInternal(Connector.java:935)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136)
+	at org.apache.catalina.core.StandardService.initInternal(StandardService.java:530)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136)
+	at org.apache.catalina.core.StandardServer.initInternal(StandardServer.java:852)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:633)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:656)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:306)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:491)
+Caused by: java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:433)
+	at sun.nio.ch.Net.bind(Net.java:425)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.apache.tomcat.util.net.NioEndpoint.initServerSocket(NioEndpoint.java:227)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:202)
+	at org.apache.tomcat.util.net.AbstractEndpoint.init(AbstractEndpoint.java:1043)
+	at org.apache.coyote.AbstractProtocol.init(AbstractProtocol.java:540)
+	at org.apache.coyote.http11.AbstractHttp11Protocol.init(AbstractHttp11Protocol.java:74)
+	at org.apache.catalina.connector.Connector.initInternal(Connector.java:932)
+	... 13 more
+
+18-Apr-2018 19:30:24.423 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+18-Apr-2018 19:30:24.424 SEVERE [main] org.apache.catalina.util.LifecycleBase.handleSubClassException Failed to initialize component [Connector[AJP/1.3-8009]]
+ org.apache.catalina.LifecycleException: Protocol handler initialization failed
+	at org.apache.catalina.connector.Connector.initInternal(Connector.java:935)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136)
+	at org.apache.catalina.core.StandardService.initInternal(StandardService.java:530)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136)
+	at org.apache.catalina.core.StandardServer.initInternal(StandardServer.java:852)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:633)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:656)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:306)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:491)
+Caused by: java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:433)
+	at sun.nio.ch.Net.bind(Net.java:425)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.apache.tomcat.util.net.NioEndpoint.initServerSocket(NioEndpoint.java:227)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:202)
+	at org.apache.tomcat.util.net.AbstractEndpoint.init(AbstractEndpoint.java:1043)
+	at org.apache.coyote.AbstractProtocol.init(AbstractProtocol.java:540)
+	at org.apache.catalina.connector.Connector.initInternal(Connector.java:932)
+	... 13 more
+
+18-Apr-2018 19:30:24.425 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 472 ms
+18-Apr-2018 19:30:24.445 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+18-Apr-2018 19:30:24.446 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/9.0.7
+18-Apr-2018 19:30:24.702 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/sutdbank.war]
+18-Apr-2018 19:30:24.727 INFO [main] org.apache.catalina.startup.ExpandWar.expand An expanded directory [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/sutdbank] was found with a last modified time that did not match the associated WAR. It will be deleted.
+18-Apr-2018 19:30:25.405 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+18-Apr-2018 19:30:25.459 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/sutdbank.war] has finished in [756] ms
+18-Apr-2018 19:30:25.459 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/docs]
+18-Apr-2018 19:30:25.564 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+18-Apr-2018 19:30:25.566 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/docs] has finished in [106] ms
+18-Apr-2018 19:30:25.566 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/manager]
+18-Apr-2018 19:30:25.649 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+18-Apr-2018 19:30:25.653 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/manager] has finished in [87] ms
+18-Apr-2018 19:30:25.654 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/examples]
+18-Apr-2018 19:30:25.872 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+18-Apr-2018 19:30:25.890 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/examples] has finished in [235] ms
+18-Apr-2018 19:30:25.890 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/ROOT]
+18-Apr-2018 19:30:26.199 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+18-Apr-2018 19:30:26.214 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/ROOT] has finished in [324] ms
+18-Apr-2018 19:30:26.214 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/data]
+18-Apr-2018 19:30:26.354 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+18-Apr-2018 19:30:26.359 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/data] has finished in [145] ms
+18-Apr-2018 19:30:26.359 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/host-manager]
+18-Apr-2018 19:30:26.443 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+18-Apr-2018 19:30:26.444 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/host-manager] has finished in [85] ms
+18-Apr-2018 19:30:26.448 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 2023 ms
+18-Apr-2018 19:30:26.450 SEVERE [main] org.apache.catalina.core.StandardServer.await StandardServer.await: create[localhost:8005]: 
+ java.net.BindException: Address already in use (Bind failed)
+	at java.net.PlainSocketImpl.socketBind(Native Method)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:387)
+	at java.net.ServerSocket.bind(ServerSocket.java:375)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at org.apache.catalina.core.StandardServer.await(StandardServer.java:422)
+	at org.apache.catalina.startup.Catalina.await(Catalina.java:770)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:716)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:350)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:492)
+
+18-Apr-2018 19:30:26.450 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+18-Apr-2018 19:30:26.450 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+18-Apr-2018 19:30:26.450 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+18-Apr-2018 19:30:26.460 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [ROOT] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:43)
+18-Apr-2018 19:30:26.530 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [sutdbank] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:43)
+18-Apr-2018 19:30:26.539 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+18-Apr-2018 19:30:26.539 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+18-Apr-2018 19:30:26.539 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+18-Apr-2018 19:30:26.539 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+18-Apr-2018 19:32:50.616 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/9.0.7
+18-Apr-2018 19:32:50.619 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Apr 3 2018 19:53:05 UTC
+18-Apr-2018 19:32:50.620 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         9.0.7.0
+18-Apr-2018 19:32:50.620 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Mac OS X
+18-Apr-2018 19:32:50.620 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.13.3
+18-Apr-2018 19:32:50.620 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          x86_64
+18-Apr-2018 19:32:50.620 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre
+18-Apr-2018 19:32:50.620 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_161-b12
+18-Apr-2018 19:32:50.620 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+18-Apr-2018 19:32:50.620 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7
+18-Apr-2018 19:32:50.621 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7
+18-Apr-2018 19:32:50.622 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/Users/darrenng/desktop/project/bankwebapp/apache-tomcat-9.0.7/conf/logging.properties
+18-Apr-2018 19:32:50.622 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+18-Apr-2018 19:32:50.622 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+18-Apr-2018 19:32:50.622 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+18-Apr-2018 19:32:50.622 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+18-Apr-2018 19:32:50.623 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+18-Apr-2018 19:32:50.623 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/Users/darrenng/desktop/project/bankwebapp/apache-tomcat-9.0.7
+18-Apr-2018 19:32:50.623 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/Users/darrenng/desktop/project/bankwebapp/apache-tomcat-9.0.7
+18-Apr-2018 19:32:50.625 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/Users/darrenng/desktop/project/bankwebapp/apache-tomcat-9.0.7/temp
+18-Apr-2018 19:32:50.625 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/darrenng/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+18-Apr-2018 19:32:50.728 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+18-Apr-2018 19:32:50.744 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+18-Apr-2018 19:32:50.753 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+18-Apr-2018 19:32:50.753 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+18-Apr-2018 19:32:50.754 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 437 ms
+18-Apr-2018 19:32:50.772 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+18-Apr-2018 19:32:50.772 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/9.0.7
+18-Apr-2018 19:32:50.997 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/sutdbank.war]
+18-Apr-2018 19:32:51.512 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+18-Apr-2018 19:32:51.560 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/sutdbank.war] has finished in [563] ms
+18-Apr-2018 19:32:51.561 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/docs]
+18-Apr-2018 19:32:51.665 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+18-Apr-2018 19:32:51.667 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/docs] has finished in [105] ms
+18-Apr-2018 19:32:51.667 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/manager]
+18-Apr-2018 19:32:51.754 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+18-Apr-2018 19:32:51.757 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/manager] has finished in [90] ms
+18-Apr-2018 19:32:51.757 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/examples]
+18-Apr-2018 19:32:51.941 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+18-Apr-2018 19:32:51.954 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/examples] has finished in [197] ms
+18-Apr-2018 19:32:51.954 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/ROOT]
+18-Apr-2018 19:32:52.198 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+18-Apr-2018 19:32:52.210 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/ROOT] has finished in [255] ms
+18-Apr-2018 19:32:52.210 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/data]
+18-Apr-2018 19:32:52.326 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+18-Apr-2018 19:32:52.327 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/data] has finished in [117] ms
+18-Apr-2018 19:32:52.327 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/host-manager]
+18-Apr-2018 19:32:52.404 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+18-Apr-2018 19:32:52.406 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/darrenng/Desktop/project/bankwebapp/apache-tomcat-9.0.7/webapps/host-manager] has finished in [79] ms
+18-Apr-2018 19:32:52.408 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+18-Apr-2018 19:32:52.416 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+18-Apr-2018 19:32:52.418 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 1664 ms
+18-Apr-2018 19:33:22.151 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+18-Apr-2018 19:33:22.151 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+18-Apr-2018 19:33:22.207 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+18-Apr-2018 19:33:22.264 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+18-Apr-2018 19:33:22.281 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [ROOT] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:43)
+18-Apr-2018 19:33:22.296 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [sutdbank] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:43)
+18-Apr-2018 19:33:22.305 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+18-Apr-2018 19:33:22.307 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+18-Apr-2018 19:33:22.308 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+18-Apr-2018 19:33:22.309 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]

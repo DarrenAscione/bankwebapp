@@ -73,8 +73,12 @@ public class DefaultServlet extends HttpServlet {
 	
 	protected void forward(String path, HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		RequestDispatcher view = req.getRequestDispatcher(getPath(path));
-		view.forward(req, resp);
+		try {
+            RequestDispatcher view = req.getRequestDispatcher(getPath(path));
+            view.forward(req, resp);
+        } catch (NullPointerException e) {
+            throw new ServletException("error");
+        }
 	}
 	
 	protected void redirect(HttpServletResponse resp, String templage) throws IOException {
