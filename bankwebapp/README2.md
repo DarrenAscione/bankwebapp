@@ -41,6 +41,7 @@ Version:1.0 StartHTML:000000239 EndHTML:000059972 StartFragment:000003299 EndFra
             -   [Overview](#overview)
             -   [Black-Box Test Case](#black-box-test-case)
             -   [JUnit](#junit)
+	    -	[Penetration Testing](#PenTest)
             -   [Mocking Objects for Isolation Testing](#mocking-objects-for-isolation-testing)
 
 -   [Conclusion](#conclusion)
@@ -518,7 +519,7 @@ Precondition:TextFileTransaction3 has passed User1. User1 uploads a .pdf file an
 
 User receives alert message that parsing of .txt file failed. User is brought back to transaction tab.
 
-### Penetration testing
+### [](#PenTest)Penetration testing
 Penetration testing (pen testing) refers to an authorized cyber attack on a given system for the purpose of reporting on security vulnerabilities or code defects. Typically, a pen testing process involves many steps. The first of which is reconnaisance, which could be some form of social engineering on a target group of personnel associated with a certain network or system. The reconnaisance team's objective is to gain personal information about the target personnel, such as birthdates, wedding anniversary dates, childrens' names or the town in which that target personnel grew up in - such information typically could be used for passwords. Once a certain node or workstation has been compromised, the pen testers would scan the network to find out the IP addresses of all devices within the network. The next step is to determine what the server's IP address is. The attackers would then attempt to compromise the server by finding out exploits. In today's context, we have a lot of open source tools available for pen testing.
 
 For this project, we have adopted _OWASP Zap_, a free and user-friendly tool. From their website, we download their installer, https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project and install the software accordingly. Once done, we run a session and enter a url address which we would like to pen test. We then enter http://localhost:8080/sutdbank/login. Zap performs fuzz pen testing and reports vulnerabilities to us.
