@@ -529,7 +529,7 @@ Once again, we made an attempt to solve even more of these defects. We submitted
 
 Our final submission has 2 defects left. Unfortunately, due to the limitation of time, the full report would only be out after the submission deadline of this project. This remaining 2 defects are mentioned here for reporting purposes.
 
-# []Conclusion(#Conclusion)
+# [](#Conclusion) Conclusion
 
 We have worked on the distributed SUTD Bank Webapp, completed the main requisite functionalities and have implemented security features to a reasonable. Level. We have also shown our USE Case and USE diagrams. We have also reduced our defects down from 11 to 2. 
 
