@@ -2,6 +2,3 @@ launguage: java
 jdk:
   - openjdk8
 
-before-script:
-  - mvn install
-
