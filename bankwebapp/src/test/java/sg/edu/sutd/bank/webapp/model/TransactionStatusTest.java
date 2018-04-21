@@ -33,7 +33,4 @@ public class TransactionStatusTest {
     public void of_Error() {
         TransactionStatus value = TransactionStatus.of("Error");
     }
-
-
-
 }

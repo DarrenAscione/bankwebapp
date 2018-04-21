@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="war" name="sutdbank:war">
-    <output-path>$PROJECT_DIR$/apache-tomcat-9.0.7/webapps</output-path>
+    <output-path>$PROJECT_DIR$/target</output-path>
     <root id="archive" name="sutdbank.war">
       <element id="artifact" artifact-name="sutdbank:war exploded" />
     </root>
