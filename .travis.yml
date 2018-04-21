@@ -3,6 +3,8 @@ java:
 
   - 1.8
 
+before-script:
+  - mvn install
 
 
 script:
