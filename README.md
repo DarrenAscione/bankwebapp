@@ -1,4 +1,6 @@
 # Secure Banking Application  with Java Servlet
+
+[![Build Status](https://travis-ci.org/DarrenAscione/bankwebapp.svg?branch=master)](https://travis-ci.org/DarrenAscione/bankwebapp) [![Coverage Status](https://coveralls.io/repos/github/DarrenAscione/bankwebapp/badge.svg?branch=master)](https://coveralls.io/github/DarrenAscione/bankwebapp?branch=master)
   
 ## Contents  
   
@@ -9,12 +11,6 @@
 		  + [Use Cases](#use-cases)
 		  + [Use Case Diagram](#use-case-diagram)
   * [Deployment guide](#deployment-guide)  
-    + [Step 1. Clone or download the source code from this repository](#step-1-clone-or-download-the-source-code-from-this-repository)  
-    + [Step 2. Import the web application project into Eclipse](#step-2-import-the-web-application-project-into-eclipse)  
-    + [Step 3. Update your MySQL server configurations](#step-3-update-your-mysql-server-configurations)  
-    + [Step 4. Start MySQL server](#step-4-start-mysql-server)  
-    + [Step 5. Generate default MySQL tables](#step-5-generate-default-mysql-tables)  
-    + [Step 6. Add a JDBC connector binary to Apache Tomcat server](#step-6-add-a-jdbc-connector-binary-to-apache-tomcat-server)  
    * [Project Structure](#project-structure)
 	   + [Project Architecture](#project-architecture)
 	   + [Features Implementation](#features)
@@ -24,20 +20,22 @@
 			   + [Batch Upload](#batch-upload)
 	  + [Security Enhancement](#security-enhancement)
 		  + [Client-Side Validation](#client-side-validation)
-			  + [Input Sanitization](#input-sanitization)
-			  + [HTML Escaping](#html-escaping)
+			  + [Input Sanitisation](#input-sanitisation)
+			  + [JavaScript Validation Methods](#javascript-validation-methods)
 		  + [Server-Side (Back-End) Validation](#server-side-validation)
 			  + [SQL Injection Prevention](#sql-injection-prevention)
 			  + [XSS Injection Prevention](#xss-injection-prevention)
 		  + [Race-Condition Prevention](#race-condition-prevention)
-  + [Coverity Scan Analysis](#coverity-scan-analysis)
-	 + [Results](#results)
-	 + [Testing Analysis](#testing-analysis)
-		 + [Overview](#overview)
-		 + [Black-Box Test Case](#black-box-test-case)
-		 + [JUnit](#junit)
-		 + [Mocking Objects for Isolation Testing](#mocking-objects-for-isolation-testing)
-		 + [Penetration testing](#penetration-testing)
+ + [Testing](#testing)
+	 + [Overview](#overview)
+	 + [Black-Box Test Case](#black-box-test-case)
+	 + [JUnit](#junit)
+	 + [Mocking Objects for Isolation Testing](#mocking-objects-for-isolation-testing)
+	 +  [Penetration Testing](#penetration-testing)
+ + [Static Analysis Tool](#static-analysis-tool)
+	 + [Coverity Scan Analysis](#coverity-scan-analysis)
+		 + [Other Tools for Integration Testing](#other-tools-for-integration-testing)
+		 + [Travis CI](#travis-ci)
  + [Conclusion](#conclusion)
 
 ## Pre-requisites  
@@ -102,9 +100,9 @@ This step creates/overwrites the default schema `bankwebapp`.
   
 ## Introduction
 
-### [Application Overview](#application-overview)
+### Application Overview
 
-This report documents our work for the **50.531 Secure Software Engineering ** final project. In this project, we were distributed a running but incomplete web application for a bank - _bankwebapp_. This project is coded in _java_, using the _IntelliJ_ environment on the _Apache Tomcat 8.0_ server as _localhost_. The distributed project allows users to _register_ accounts and _login_. Additionally, there is a default username, _staff_1_ with administrative privileges. The key objectives for this project are
+This report documents our work for the **50.531 Secure Software Engineering** final project. In this project, we were distributed a running but incomplete web application for a bank - _bankwebapp_. This project is coded in _java_, using the _IntelliJ_ environment on the _Apache Tomcat 8.0_ server as _localhost_. The distributed project allows users to _register_ accounts and _login_. Additionally, there is a default username, _staff_1_ with administrative privileges. The key objectives for this project are
 
 1.  Completion of the functionalities including transactions and batch transactions
 2.  Implementation of security features
@@ -293,6 +291,25 @@ One of the key features we have implemented beyond the scope of the deliverables
 
 Users would require a valid username, password and email address for login. As these are standard security implementations adopted by most public platforms, we opine that it was a good practice to implement this for our project as well. You may refer to the _Security Implementations_ section below for a full discussion.
 
+![Imgur](https://i.imgur.com/bVnrK2V.png)
+**Figure 1.1: Invalid password and email due to regular expression check in the Javascript**
+
+![Imgur](https://i.imgur.com/ZfIjFxO.png)
+**Figure 1.2: Successful Registration of new user**
+
+Once the user has successfully registered his/her account, the application will redirect the user to the main page with th eabove shown message. The user will also receive an email notification based on the email address used to register the account to notify the user that a successful registration has been completed.
+
+![Imgur](https://i.imgur.com/eJj0Q4S.png)
+**Figure 1.3: Successful Email Received**
+
+When a user has been registered, the staff/admin must approve this account in order to activate it. Only when the staff has approved the account would the user be then allowed to login to his account and make transactions. He would also receive an email notifying him that the account has been approved together with a list of transaction codes that he can use to make transactions.
+
+![Imgur](https://i.imgur.com/09vmbuS.png)
+**Figure 1.4: Staff Dashboard should display any pending request for client registration**
+
+![Imgur](https://i.imgur.com/1Fh13Xb.png)
+**Figure 1.5: Email received by the user to notify him that the account has been approved.**
+
 #### Single Transaction
 
 For the single transaction functionality, the `clientTransactionDAO`interface has been modified to include the following methods:
@@ -344,10 +361,116 @@ The method `validTransaction()` serves as a check to see if the transaction made
  }
 ```
 
-Moreover, the `TransactionCodesDAO` interface has been updated to include the `validCode()` and `updateUsage()` 
+Moreover, the `TransactionCodesDAO` interface has been updated to include the `validCode()` and `updateUsage()` . These methods ensure that the transaction code used is valid.
+
+```java
+@Override  
+public Boolean validCode(String code, int userId) throws ServiceException {  
+  Connection conn = connectDB();  
+  PreparedStatement ps = null;  
+  ResultSet rs = null;  
+  String acode = "\"" + code + "\"";  
+ try {  
+  String query = String.format("SELECT * FROM transaction_code WHERE code= %s AND user_id = %s AND used = 0", acode, userId);  
+  ps = prepareStmt(conn, query);  
+  rs = ps.executeQuery();  
+ if (!rs.isBeforeFirst()) {  
+  throw new SQLException("Your Code is invalid or has expired, please use another valid transaction code emailed to your account. Thank you");  
+  }  
+ } catch (SQLException e) {  
+  throw ServiceException.wrap(e);  
+  } finally {  
+  closeDb(conn, ps, null);  
+  }  
+  return true;  
+}
+```
+
+Under the clientTransactionDAO model, a new method `validTransaction()` is written to return if the user has succifient balance before submitting the request. If a user has more than enough balance, the transaction is allowed and the user will be able to successfully make that transaction.
+
+```java
+@Override  
+  public synchronized Boolean validTransaction(ClientTransaction transaction) throws ServiceException {  
+  Connection conn = connectDB();  
+  PreparedStatement ps = null;  
+  ResultSet rs = null;  
+ try {  
+  ps = prepareStmt(conn, "SELECT amount FROM client_account WHERE user_id = ?");  
+ int idx = 1;  
+  ps.setString(idx++, String.valueOf(transaction.getUser().getId()));  
+  rs = ps.executeQuery();  
+ if (rs.next()) {  
+  BigDecimal current_amount = new BigDecimal(rs.getInt(1));  
+ return transaction.getAmount().compareTo(current_amount) < 0;  
+  } else {  
+  throw new SQLException("no data found");  
+  }  
+  
+ } catch (SQLException e) {  
+  throw ServiceException.wrap(e);  
+  } finally {  
+  closeDb(conn, ps, rs);  
+  }
+```
+
+As part of the requirements, the user must transfer at least $10.00 whenever a transaction is to be made. This is checked on the client side through the use of javascript ``.
+
+![Imgur](https://i.imgur.com/z9b5JsK.png)
+**Figure 2.1: Error Shown when the amount is not valid and user can only key in numeric inputs**
+
+![Imgur](https://i.imgur.com/bAw6HEW.png)
+**Figure 2.1: Error Shown when the code is invalid or has been used (expired)**
+
+![Imgur](https://i.imgur.com/guWhEJQ.png)
+**Figure 2.2: Upon Successful Transaction, dashboard is updated to reflect changes**
 
 
 #### Batch Upload
+
+Batch upload allows the user to submit a `.txt` file with multiple transactions. The user will have to follow a strict file format, with variables separated with single spaces. The fields to be submitted must be written in the following order:
+
+1. Transaction Code
+2. Amount (to be sent)
+3. Account Number (where to send to)
+
+``` bash
+# transaction code # amount # toAcc
+234a9f84:162b932fad7:-7f68 20 25
+234a9f84:162b932fad7:-7f67 20 25
+```
+
+Should if the user decides to input an invalid transaction code in any of the transactions in the `.txt` file, the entire batch upload will be rejected. 
+
+The file will also be stored in a location off from the main source code of the project for security reasons. It will be stored under the `webapps/data` directory. If a user submits the same file twice, it will not be processed and the file will be deleted. 
+
+To perform the file upload functionality, the `FileUploadServlet` was written. It uses the apache commons `fileupload` module and upon a `doPost()` request, the servlet first tries to read each of the multiple files uploaded in a single instance. It first parses the request and checks if it is `null`.
+
+Several key security measurements were also used to prevent possible attacks through the limitation of the file type as well as the size of the uploaded file. These preventions will be explained in detail under the security enhancement feature. 
+
+Once the file has been successfully parsed and the contents are deemed non malicious, the servlet reads the file line by line and executes the request by creating individual `clientTransactionDAO` objects similar to how a single transaction is carried out. The same `Helper` class functions are used to sanitise the user input. 
+
+Upon completion, the user will be redirected to the main dashboard page and the new list of transactions will appear in the table view with the status pending. 
+
+![Imgur](https://i.imgur.com/l8vbADs.png)
+**Figure 3.1: Uploading correct file format**
+
+![Imgur](https://i.imgur.com/VzYI5jv.png)
+**Figure 3.2: Table updated to reflect 3 new transaction request (batch) in the .txt file**
+
+#### Staff Approval
+
+As an admin/staff user, the staff's primary responsibility is to approve or to reject any new transaction or client registration that do not have a current `APPROVED` or `DECLINED` status. These pending requests will be reflected in the `staff` page where the staff user can then make the appropriate decision to update the request. Once the request has been updated, the respective client accounts should reflect these changes. For example, for pending transaction requests, once the staff has approved the request, both the sender and receiver account should be updated to reflect the new balance amount changes due to the approved request.
+
+![Imgur](https://i.imgur.com/qGqFjYS.png)
+**Figure 4.1: Staff Dashboard view with pending transaction request**
+
+![Imgur](https://i.imgur.com/firrSCd.png)
+**Figure 4.2: Sender account balance updated**
+
+Once the transaction request has been updated, an approved and declined transaction would turnbe green and red in colour respectively. This ins turno allow clientusers to have a clearer view of their respective account transaction statuses. 
+
+![Imgur](https://i.imgur.com/VfXYAie.png)
+**Figure 4.3: Receiver account balance updated**
 
 ### Security Enhancement
 
@@ -357,7 +480,7 @@ A helper class is written to hold common methods of input sanitation that is use
 
 On top of that, javascript is used as a client-side validation to prevent the user from inputting certain values. The javascript class contains methods such as `validateAmount` and `validateEmail` to ensure that the user input allows a restricted pattern of regular expression. 
 
-##### User Input Limitations
+##### Input Sanitisation
 
 A great way to prevent injection attacks is to limit the input space of the user. In the provided skeleton application, we can see that the user is able to key in alphanumeric characters into the amount section of the new transaction page. This vulnerability allows users to key in irrelevant characters that may allow some form of an injection attack. To prevent this, the form used in the `.jsp` classes need to be sanitised to only allow its intended set of possible inputs.
 
@@ -387,9 +510,6 @@ function validatePassword(password) {
  In this case, the password of the user is set to be at least 8 characters long with at least one numeric, one symbol and one capital character in order for it to be a valid password. This increases the security of the user's account from brute force attack on password trials.
 
 
-
-
-
 #### Server-Side Validation 
 
 ##### SQL Injection Prevention
@@ -405,8 +525,36 @@ try {
 			executeInsert(userRole, ps);
 		}
 ```
-
 The project utilises Java's `PreparedStatement` class and binds variables (i.e '?') and the corresponding `setString` methods, SQL injection can be easily prevented.
+
+#### XSS Injection Prevention
+
+We have to assume that the user input is always not secure and therefore a common and proper way to sanitise these user inputs must be carried out. Since these user inputs are used throughout the application, the best place and way to define these methods is to store them in a common `Helper` class which is placed in the `commons` module. With this common helper class, anywhere a user input is used, one of these methods in this class can be called upon to sanitise the input.
+
+```java
+public static String input_normalizer(String input) {  
+  input = Normalizer.normalize(input, Normalizer.Form.NFKC);  
+ return input.replaceAll("[^\\p{ASCII}]", "");  
+}
+```
+
+The `intput_normalizer()` function normalises the string and replaces all non ascii characters with nothing. This helps to prevent injection attacks by limiting the scope of what character is allowed.
+
+```java
+public static Boolean xss_match(String input) {  
+  Pattern pattern = Pattern.compile("<script>");  
+  Matcher matcher = pattern.matcher(input);  
+ return matcher.find();  
+}
+```
+
+Next, the `xss_match()` method uses regular expression to find if an existing user input matches the pattern that is in placed. In this case, it checks for any matching pattern to `"<script>"`. The method simply returns a boolean value of `true` or `false` if detected. 
+
+
+
+### Race-Condition Prevention
+
+Because the user accounts and account information are maintained by a central database, which serializes all transactions, in these cases no race condition attack is feasible as the database has checks and restrictions in place to prevent such race conditions. However, it is important to note that Coverity Scan did show these areas as vulnerabilities and thus a `synchronised` is added to remove this error. 
 
 ## Testing
 
@@ -415,6 +563,8 @@ The project utilises Java's `PreparedStatement` class and binds variables (i.e '
 **unit testing** is a software testing method by which individual units of source code, sets of one or more computer program modules together with associated control data, usage procedures, and operating procedures, are tested to determine whether they are fit for use.
 
 A unit test should test functionality in isolation. Side effects from other classes or the system should be eliminated for a unit test, if possible. Hence as such, with this definition in mind, the proper way of writing unit test cases should be applied. Code coverage provides a good insight as to how much testing has been done throughout the application. Several various unit testing techniques were applied, including parameterised testing, etc. 
+
+Although it would be ideal to have complete test coverage, but due to limited time only a few selected test cases were written. However, they were carefully chosen to show how certain test cases should be written. A total of 7 classes were covered. 
 
 ### JUnit
 
@@ -453,6 +603,67 @@ Likewise, the above code shows how a proper test case for a setter function shou
 
 Each of the Java classes in the Model module has a corresponding getter and setter method that must be tested as shown above. These test cases have been written and you can refer them in the following directory: `<BANKWEBAPP>/src/test/java/sg.edu.sutd.bank.webapp/model`.
 
+### Testing for Exception
+
+In the example for the class, `TransactionStatusTest`, to obtain a 100% coverage the following branch conditions must be tested:
+
+1. When input is `null`
+2. When input is `APPROVED`
+3. When input is `DECLINED`
+
+However, when the input is none of the 3 above mentioned variables, an `IllegalArgumentException` is thus thrown and we have to simulate this in another test case. 
+
+```java
+@Test(expected = IllegalArgumentException.class)  
+public void of_Error() {  
+  TransactionStatus value = TransactionStatus.of("Error");  
+}
+```
+
+### Mocking Objects for Isolation Testing
+
+When certain methods have dependencies on others, we need to find a way to mock these dependencies so that our unit testing would work as intended. Therefore, in this project, the module `mockito` is used for such purposes. The framework allows the creation of test objects in unit testing. Mock testing frameworks such as `mockito` effectively fakes some external dependencies so that the object that is being tested has a consistent interaction with its outside dependencies. 
+
+On top of that, `mockito` comes with additional features such as the ability to verify the behaviour of the system under test. This is also known as SUT without establisihng the expectations beforehand. Mockito does so by removing the specification of expectations, thus the coupling between test code to system under testing is reduced. Resulting in a simpler way to maintain and implement the unit test cases. For an example, the unit test case using the `mockito` framework has been written for the `DefaultServlet()` java class. 
+
+Before each test methods, a common `run()` instantiates all common declarations. This is to prevent repetitive code writing.
+
+```java 
+  @Before  
+  public void run() {  
+  defaultServlet = new DefaultServlet();  
+  request = mock(HttpServletRequest.class, Mockito.RETURNS_DEEP_STUBS);  
+  session = mock(HttpSession.class);  
+  response = mock(HttpServletResponse.class, Mockito.RETURNS_DEEP_STUBS);  
+  }  
+```
+The objects to be mocked will then be initialised with the mock methods like the ones shown above. 
+
+```java
+@Test  
+public void sendError() {  
+  String msg = "error";  
+  when(request.getSession()).thenReturn(session);  
+  defaultServlet.sendError(request, msg);  
+  verify(request.getSession(), times(1)).setAttribute("req_error",msg);  
+}
+```
+
+In this unit test case for `sendError()`, we can see that the method `request.getSession()` is called within the function and hence would need to be subjected to mocking. the `thenReturn` method returns a result from mocking that function, i.e. a fake call. When the method to be tested is called, we can then simply verify through the use of `mockito`'s `verify` key function that the `request.getSession().setAttribute(msg)` is called 1 time which means the code has been executed correctly for this method.
+
+```java
+@Test  
+public void getUserId() {  
+  when(request.getSession()).thenReturn(session);  
+  when(request.getSession().getAttribute("user_id")).thenReturn(12);  
+  
+  // calling function to test  
+  int result = defaultServlet.getUserId(request);  
+  assertEquals(result, 12);  
+}
+```
+
+In the above test, the `getSession()` method is first mocked followed by the `getUserId()` and once that is done, we can call the function to be tested and `assertEquals` that the resulting output is as expected.
 
 ### Black-Box Test Case
 
@@ -460,87 +671,100 @@ Each of the Java classes in the Model module has a corresponding getter and sett
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|
 | LoginUser1             | Precondition:  User at login Page of Web Application. Currently no user logged in. Waiting for user to key in username and password. User1: guest Password1: Password!12345                                                                     | BankAccount                                                                                                                                           |                |
 | LoginUser1.1           | Precondition:  Login Failed. User keys in wrong password and/or username once                                                                                                                                                          | Savings, Investments                                                                                                                                  |                |
-| LoginUser1.2           | Precondition: Login Failed thrice. 
-User keys in wrong password and/or username 3 times.                                                                                                                                                | Pop-up showing warning is displayed. User unable to key in username/password for the next 1 minute.                                                   |                |
-| LoginUser1.3           | Precondition: Login Successful. User keys in correct password and username combination.                                                                                                                                                | User is redirected to main dashboard page.                                                                                                            |                |
+| LoginUser1.2           | Precondition: Login Successful. User keys in correct password and username combination.                                                                                                                                                | User is redirected to main dashboard page.                                                                                                            |                |
 | Transaction2           | Precondition: User has successfully logged into his/her account. User is at transaction tab. User1: guest Password1: guest Account Balance: 100                                                                                        | User is at the transaction tab of the dashboard page.                                                                                                 |                |
 | Transaction2.1         | Precondition:  Transaction2 has passed User1. User1 makes a transaction of -$50.                                                                                                                                                       | User account balance updates to $50. User transaction history updates to include latest transaction. User is brought back to transaction history tab. |                |
 | Transaction2.2         | Precondition:  Transaction2 has passed User1. User1 makes a transaction of -$120 and fails.                                                                                                                                            | User receives alert message to state balance not enough. User is taken back to transaction tab.                                                       |                |
 | TextFileTransaction3   | Precondition: User has successfully logged into his/her account. User is at transaction tab. User selects text file upload option.  User1: guest Password1: guest Account Balance: 100 Text File Format: .txt                          | User is at the transaction tab of the dashboard page and uploads a .txt file                                                                          |                |
 | TextFileTransaction3.1 | Precondition:TextFileTransaction3 has passed User1. User1 uploads a .txt file and is parsed into the browser successfully of transaction -$50.  User1: guest Password1: guestAccount  Balance: 100 Text File Format: .txt Amount: -$50 | User account balance updates to $50. User transaction history updates to include latest transaction. User is brought back to transaction history tab. |                |
-| TextFileTransaction3.2 | Precondition:TextFileTransaction3 has passed User1. User1 uploads a .txt file and is parsed into the browser unsuccessfully.  User1: guest Password1: guest Account Balance: 100 Text File Format: .txt Amount: sdfkdjfsdf             | User receives alert message that parsing of .txt file failed. User is brought back to transaction tab.                                                |                |
-| TextFileTransaction3.3 | Precondition:TextFileTransaction3 has passed User1. User1 uploads a .pdf file and is parsed into the browser unsuccessfully.  User1: guest Password1: guest Account Balance: 100 Text File Format: .pdf                                | User receives alert message that parsing of .txt file failed. User is brought back to transaction tab.                                                |                |
-|                        |                                                                                                                                                                                                                                        |                                                                                                                                                       |                |
+| TextFileTransaction3.2 | Precondition:TextFileTransaction3 has passed User1. User1 uploads a .txt file and is parsed into the browser unsuccessfully.  User1: guest Password1: guest Account Balance: 100 Text File Format: .txt Amount: sdfkdjfsdf             | User receives alert message that parsing of .txt file failed. User is brought back to transaction tab.                                                |                
 
-### [Penetration Testing](#penetration-testing)
+### Penetration Testing
 Penetration testing (pen testing) refers to an authorized cyber attack on a given system for the purpose of reporting on security vulnerabilities or code defects. Typically, a pen testing process involves many steps. The first of which is reconnaisance, which could be some form of social engineering on a target group of personnel associated with a certain network or system. The reconnaisance team's objective is to gain personal information about the target personnel, such as birthdates, wedding anniversary dates, childrens' names or the town in which that target personnel grew up in - such information typically could be used for passwords. Once a certain node or workstation has been compromised, the pen testers would scan the network to find out the IP addresses of all devices within the network. The next step is to determine what the server's IP address is. The attackers would then attempt to compromise the server by finding out exploits. In today's context, we have a lot of open source tools available for pen testing.
 
 For this project, we have adopted _OWASP Zap_, a free and user-friendly tool. From their website, we download their installer, https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project and install the software accordingly. Once done, we run a session and enter a url address which we would like to pen test. We then enter http://localhost:8080/sutdbank/login. Zap performs fuzz pen testing and reports vulnerabilities to us.
 
-## Analysis
+## Static Analysis Tool
 
 Static analysis refers to the analysis of computer programs without actual execution. Typically, the uses of static analysis range from detecting coding errors to verifying formal methods. For our purposes, static analysis aids us in finding code vulnerabilities and security defects. We have adopted _Coverity Scan_ as our static analysis tool.
 
-### Coverity Report
-
-
-### [Coverity Report](#coverity-report)
+### Coverity Scan Analysis
 
 To use Coverity Scan, we download their _zip_ package _cov-analysis-win64-2017.07.zip_ from [https://scan.coverity.com/download?tab=java](https://scan.coverity.com/download?tab=java). The procedure requires two main steps:
 
 1.  Register an account and the project at their website [https://scan.coverity.com/](https://scan.coverity.com/). Users may also login with their _Github_ user credentials.
 2.  Build the project log via the said zip package above. This step less trivial, and requires more time to set up. The coverity website instructs us to first to add the \bin directory in the zip package to our _path_. To do this, we run the _Edit the system environment variables_ utility in the _Windows Control Panel_. We would also need to add the _Apache Maven_ tool and _Java Development Kit_(JDK (not JRE)) compiler to to system path. Finally, we access the bankwebapp project directory with a _cmd_ shell, and use `mvn clean` to clean up undesirable units or steps and `cov-build --dir cov-int mvn -DskipTests=true compile` to build logs. A folder _cov-int_ will be added to the project directory. We compress this folder, and upload it to [https://scan.coverity.com/projects/project_link?tab=overview](https://scan.coverity.com/projects/project_link?tab=overview) .
 
-We would then obtain the following summary. [![https://imgur.com/abf1xow](https://imageshack.com/a/img923/9932/iQW5ZD.png)](/DarrenAscione/bankwebapp/blob/master/bankwebapp/image.png) First build: 11 defects.
+We would then obtain the following summary. [![https://imgur.com/abf1xow](https://imageshack.com/a/img923/9932/iQW5ZD.png)](/DarrenAscione/bankwebapp/blob/master/bankwebapp/image.png) 
 
-We proceeded to work on the defects as per the generated report. After we were done, we proceeded with a second scan, yielding 6 outstanding defects.
+The bugs that were discovered are mostly serve bugs that are caused by the opening connection of the databases in the DAO classes. To remedy this, we have to ensure that the connection is closed wherever a database is used. This can be done through the use of the `finally` clause.
 
-![https://imgur.com/pW3Lm8m](https://imgur.com/pW3Lm8m.png)
+```java
+finally {  
+  closeDb(conn, ps, null);  
+  }
+```
 
-In the following, we will show some of the summarized defect reports.
+In the following, we will show some of the summarized defect reports.  
+  
+![https://imgur.com/MIeAxl8](https://imgur.com/MIeAxl8.png)Amongst our outstanding defects, 3 were considered _high_ severity, and 3 were considered _medium_ severity.  
+  
+Of the 3 high severity defects, 2 were resource leaks and 1 was a security impact.  
+  
+![https://imgur.com/MT3i727](https://imgur.com/MT3i727.png)  
+  
+The following figures demonstrate our code defects.  
+  
+![https://imgur.com/QnFrTh8](https://imgur.com/QnFrTh8.png)  
+  
+![https://imgur.com/Qsfz1f7](https://imgur.com/Qsfz1f7.png)  
+  
+Our medium severity defects were issues pertinent to _null pointer dereferences_.   
+  
+![https://imgur.com/KZTaN5t](https://imgur.com/KZTaN5t.png)  
+  
+The following figures would show the actual codes  
+  
+![https://imgur.com/sLaRaXg](https://imgur.com/sLaRaXg.png)  
+  
+![https://imgur.com/JQRs7t6](https://imgur.com/JQRs7t6.png)  
+  
+![https://imgur.com/c0AoFgr](https://imgur.com/c0AoFgr.png)  
+  
+Once again, we made an attempt to solve even more of these defects. We submitted a new build once again to yield  
+  
+![https://imgur.com/5ztfMVl](https://imgur.com/5ztfMVl.png)  
+  
+Our final submission has 2 defects left. Unfortunately, due to the limitation of time, the full report would only be out after the submission deadline of this project. This remaining 2 defects are mentioned here for reporting purposes.  
 
-![https://imgur.com/MIeAxl8](https://imgur.com/MIeAxl8.png)Amongst our outstanding defects, 3 were considered _high_ severity, and 3 were considered _medium_ severity.
+### Other Tools for Integration Testing
 
-Of the 3 high severity defects, 2 were resource leaks and 1 was a security impact.
+#### Travis CI
 
-![https://imgur.com/MT3i727](https://imgur.com/MT3i727.png)
+![Imgur](https://i.imgur.com/pq2TZ7p.png)
 
-The following figures demonstrate our code defects.
+[Travis CI](https://travis-ci.org/profile/DarrenAscione) is a hosted, distributed continuous integration service used for automating build runs and test runs for projects hosted on GitHub. 
 
-![https://imgur.com/QnFrTh8](https://imgur.com/QnFrTh8.png)
+Through the inclusion of a `.travis.yml` file to the root directory, Travis CI will check out the relevant branch and run the specific commands specified in `.travis.yml`. When that process has been completed, the developer will then be notified if a build has been successful or is in failure. Travis CI is a useful tool that updates automatically and can be ran on the mobile phone without the need of a computer. It also runs automatically whenever a new `git push` has been initiated. With Travis CI, developers will know if the code can be build successfully and proper integration has been done with Unit testing.
 
-![https://imgur.com/Qsfz1f7](https://imgur.com/Qsfz1f7.png)
+The badge at the top of the `readme.md` file shows that it is build successful currently and will change depending on the current build status.
 
-Our medium severity defects were issues pertinent to _null pointer dereferences_. 
+[![Build Status](https://travis-ci.org/DarrenAscione/bankwebapp.svg?branch=master)](https://travis-ci.org/DarrenAscione/bankwebapp)
+  
+#### Coveralls Test Coverage
 
-![https://imgur.com/KZTaN5t](https://imgur.com/KZTaN5t.png)
+To show case how much test coverage was done for the project, coveralls.io was used. _Coveralls_ takes the pain out of tracking your code coverage. Know where you stand with your untested code. 
 
-The following figures would show the actual codes
+Cove coverage is done through the use of Cobertura. To retrieve the list:
 
-![https://imgur.com/sLaRaXg](https://imgur.com/sLaRaXg.png)
-
-![https://imgur.com/JQRs7t6](https://imgur.com/JQRs7t6.png)
-
-![https://imgur.com/c0AoFgr](https://imgur.com/c0AoFgr.png)
-
-Once again, we made an attempt to solve even more of these defects. We submitted a new build once again to yield
-
-![https://imgur.com/5ztfMVl](https://imgur.com/5ztfMVl.png)
-
-The following shows the last remaining defect in more detail.
-
-![https://imgur.com/5UrciD7](https://imgur.com/5UrciD7.png)
-
-# ![](#Conclusion) Conclusion
-
-We have worked on the distributed SUTD Bank Webapp, completed the main requisite functionalities and have implemented security features to a reasonable. Level. We have also shown our USE Case and USE diagrams. We have also reduced our defects down from 11 to 2. 
+```bash
+mvn cobertura:cobertura coveralls:report
+```
 
 
 
+## Conclusion
 
-
-
-
-
+We have worked on the distributed SUTD Bank Webapp, completed the main requisite functionalities and have implemented security features to a reasonable. Level. We have also shown our USE Case and USE diagrams. We have also reduced our defects down from 11 to 2.
 
 

@@ -1,5 +1,4 @@
 service_name: travis-pro
 repo_token: lHgvto8RceIiGaQSWRCc9voRsOubDX0nc
-
 script: cd bankwebapp
 
