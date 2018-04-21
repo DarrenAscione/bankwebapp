@@ -531,7 +531,7 @@ The following shows the last remaining defect in more detail.
 
 [!https://imgur.com/5UrciD7](https://imgur.com/5UrciD7.png)
 
-# [](#Conclusion) Conclusion
+# ![](#Conclusion) Conclusion
 
 We have worked on the distributed SUTD Bank Webapp, completed the main requisite functionalities and have implemented security features to a reasonable. Level. We have also shown our USE Case and USE diagrams. We have also reduced our defects down from 11 to 2. 
 
