@@ -180,15 +180,15 @@ Additionally, we will apply USE cases and USE case diagrams to show demonstrate 
 |Payee does not exist in database. System under maintenance
 |Actors|Primary: User_1 (Payer), User_2 (Payee)
 |Trigger|User wants to transfer money
-|Normal flow|User logs in with correct username and password > User enters prompt for money transfer > User enters payee account number > User enters amount of money to transfer > User confirms transfer > Staff_1 to login, approve transaction > User receives message of successful transfer > Transaction history updated
-|Alternative flow|User notified of insufficient credits > User is returned Transfer money window
+|Normal flow|User logs in with correct username and password > User selects new transaction > user enters new transaction page > User enters payee account number > User enters amount of money to transfer > User enters valid transaction code > User table updates with new entry but pending status > Staff_1 to login, approve transaction > User logs in > Transaction history updated
+|Alternative flow|User notified of insufficient credits > User is returned Transfer money window or User inputs invalid transaction code > User notified of invalid transaction code
 |Interacts with | SQL Database, Main Page (Includes), Staff Login (Extends)
 |Open issues| Implement time-out notification, Implement fail-safe for connection issues with notification to user
 ------------
 | Name | Batch Transfer|
 |---------|---------|
 |Objective|To transfer money from one account to multiple accounts in SUTD Bank
-|Pre-conditions|User must have a registered account, User must have sufficient funds, Payee must have a registered account with SUTD Bank, User must have a completed form consisting of all details needed by the bank app for funds transfer (“the textfile”)
+|Pre-conditions|User must have a registered account, User must have sufficient funds, , User must have a completed form consisting of all details needed by the bank app for funds transfer (“the textfile”) in the format "transaction code amount toaccountnum"
 |Post-conditions|Success: Message indicating file upload is successful. Transaction history updated. Failure: error message for insufficient funds or error in field(s).
 |Actors|Primary: User_1 (Payer). Secondary:  User_3 (Payee), User_4 (Payee)
 |Trigger|User wants to transfer money to multiple payees with SUTD Bank.
