@@ -74,6 +74,7 @@ public class TransactionCodesDAOImp extends AbstractDAOImpl implements Transacti
 		try {
 			String query = String.format("SELECT * FROM transaction_code WHERE code= %s AND user_id = %s AND used = 0", acode, userId);
 			ps = prepareStmt(conn, query);
+			System.out.println(query);
 			rs = ps.executeQuery();
 			if (!rs.isBeforeFirst()) {
 				throw new SQLException("Your Code is invalid or has expired, please use another valid transaction code emailed to your account. Thank you");

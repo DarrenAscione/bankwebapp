@@ -17,12 +17,27 @@ import org.mockito.Mockito;
 
 public class DefaultServletTest {
 
-    final DefaultServlet defaultServlet = new DefaultServlet();
+    private DefaultServlet defaultServlet;
+    private HttpServletRequest request;
+    private HttpSession session;
+
+    @Before
+    public void run() {
+        defaultServlet = new DefaultServlet();
+        request = mock(HttpServletRequest.class);
+        session = mock(HttpSession.class);
+    }
+
+    @Test
+    public void sendError() {
+        String msg = "error";
+        defaultServlet.sendError(request, msg);
+        verify(request.getSession(), times(1)).getAttribute(msg);
+
+    }
 
     @Test
     public void getUserId() {
-        HttpServletRequest request = mock(HttpServletRequest.class);
-        HttpSession session = mock(HttpSession.class);
         when(request.getSession()).thenReturn(session);
         when(request.getSession().getAttribute("user_id")).thenReturn(12);
 

@@ -67,7 +67,7 @@ public class FileUploadServlet extends DefaultServlet{
                         }
                     }
                 } else {
-                    if (fileItem.getSize() > 0 && fileItem.getSize() < 100) {
+                    if (fileItem.getSize() > 0 && fileItem.getSize() < 300) {
                         if (!fileItem.getName().contains(".txt")) {
                             throw new Exception("Wrong Format");
                         }
@@ -81,7 +81,9 @@ public class FileUploadServlet extends DefaultServlet{
                                 String[] tokens = line.split(" ");
                                 for (int i=0; i < tokens.length; i++) {
                                     tokens[i] = Helper.input_normalizer(tokens[i]);
+                                    System.out.println(tokens[i]);
                                     if (Helper.xss_match(tokens[i])) {
+                                        System.out.println(tokens[i]);
                                         throw new ServerException("XSS Attempt!");
                                     }
                                 }
@@ -112,6 +114,9 @@ public class FileUploadServlet extends DefaultServlet{
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
+                    } else {
+                        throw new ServerException("File Format Incorrect or Exceeded Allowed Size");
+
                     }
                 }
             }
