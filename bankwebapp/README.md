@@ -529,7 +529,7 @@ Once again, we made an attempt to solve even more of these defects. We submitted
 
 The following shows the last remaining defect in more detail.
 
-[!https://imgur.com/5UrciD7](https://imgur.com/5UrciD7.png)
+![https://imgur.com/5UrciD7](https://imgur.com/5UrciD7.png)
 
 # ![](#Conclusion) Conclusion
 
