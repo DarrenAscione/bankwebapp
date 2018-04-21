@@ -38,7 +38,6 @@ public class DefaultServletTest {
         String msg = "error";
         when(request.getSession()).thenReturn(session);
         defaultServlet.sendError(request, msg);
-
         verify(request.getSession(), times(1)).setAttribute("req_error",msg);
 
     }
