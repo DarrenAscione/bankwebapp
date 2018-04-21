@@ -1,4 +1,4 @@
 launguage: java
 jdk:
-  - openjdk8
+  - oraclejdk8
 
