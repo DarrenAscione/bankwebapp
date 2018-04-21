@@ -1,0 +1,10 @@
+launguage: java
+java:
+
+  - 1.8
+
+
+
+script:
+
+  - bankwebapp/src/test/java/sg.edu.sutd.bank.webapp
