@@ -527,7 +527,9 @@ Once again, we made an attempt to solve even more of these defects. We submitted
 
 ![https://imgur.com/5ztfMVl](https://imgur.com/5ztfMVl.png)
 
-Our final submission has 2 defects left. Unfortunately, due to the limitation of time, the full report would only be out after the submission deadline of this project. This remaining 2 defects are mentioned here for reporting purposes.
+The following shows the last remaining defect in more detail.
+
+[!https://imgur.com/5UrciD7](https://imgur.com/5UrciD7.png)
 
 # [](#Conclusion) Conclusion
 
