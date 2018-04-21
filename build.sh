@@ -1,3 +1,3 @@
 #!/bin/bash
-cd git_repo/
+cd bankwebapp/
 mvn clean install

@@ -1,4 +1,4 @@
-﻿# Secure Banking Application  with Java Servlet
+# Secure Banking Application  with Java Servlet
   
 ## Contents  
   
@@ -37,6 +37,7 @@
 		 + [Black-Box Test Case](#black-box-test-case)
 		 + [JUnit](#junit)
 		 + [Mocking Objects for Isolation Testing](#mocking-objects-for-isolation-testing)
+		 + [Penetration testing](#penetration-testing)
  + [Conclusion](#conclusion)
 
 ## Pre-requisites  
@@ -490,7 +491,52 @@ To use Coverity Scan, we download their _zip_ package _cov-analysis-win64-2017.0
 1.  Register an account and the project at their website [https://scan.coverity.com/](https://scan.coverity.com/). Users may also login with their _Github_ user credentials.
 2.  Build the project log via the said zip package above. This step less trivial, and requires more time to set up. The coverity website instructs us to first to add the \bin directory in the zip package to our _path_. To do this, we run the _Edit the system environment variables_ utility in the _Windows Control Panel_. We would also need to add the _Apache Maven_ tool and _Java Development Kit_(JDK (not JRE)) compiler to to system path. Finally, we access the bankwebapp project directory with a _cmd_ shell, and use `mvn clean` to clean up undesirable units or steps and `cov-build --dir cov-int mvn -DskipTests=true compile` to build logs. A folder _cov-int_ will be added to the project directory. We compress this folder, and upload it to [https://scan.coverity.com/projects/project_link?tab=overview](https://scan.coverity.com/projects/project_link?tab=overview) .
 
-We would then obtain the following summary. [![https://imgur.com/abf1xow](https://imageshack.com/a/img923/9932/iQW5ZD.png)](/DarrenAscione/bankwebapp/blob/master/bankwebapp/image.png) 
+We would then obtain the following summary. [![https://imgur.com/abf1xow](https://imageshack.com/a/img923/9932/iQW5ZD.png)](/DarrenAscione/bankwebapp/blob/master/bankwebapp/image.png) First build: 11 defects.
+
+We proceeded to work on the defects as per the generated report. After we were done, we proceeded with a second scan, yielding 6 outstanding defects.
+
+![https://imgur.com/pW3Lm8m](https://imgur.com/pW3Lm8m.png)
+
+In the following, we will show some of the summarized defect reports.
+
+![https://imgur.com/MIeAxl8](https://imgur.com/MIeAxl8.png)Amongst our outstanding defects, 3 were considered _high_ severity, and 3 were considered _medium_ severity.
+
+Of the 3 high severity defects, 2 were resource leaks and 1 was a security impact.
+
+![https://imgur.com/MT3i727](https://imgur.com/MT3i727.png)
+
+The following figures demonstrate our code defects.
+
+![https://imgur.com/QnFrTh8](https://imgur.com/QnFrTh8.png)
+
+![https://imgur.com/Qsfz1f7](https://imgur.com/Qsfz1f7.png)
+
+Our medium severity defects were issues pertinent to _null pointer dereferences_. 
+
+![https://imgur.com/KZTaN5t](https://imgur.com/KZTaN5t.png)
+
+The following figures would show the actual codes
+
+![https://imgur.com/sLaRaXg](https://imgur.com/sLaRaXg.png)
+
+![https://imgur.com/JQRs7t6](https://imgur.com/JQRs7t6.png)
+
+![https://imgur.com/c0AoFgr](https://imgur.com/c0AoFgr.png)
+
+Once again, we made an attempt to solve even more of these defects. We submitted a new build once again to yield
+
+![https://imgur.com/5ztfMVl](https://imgur.com/5ztfMVl.png)
+
+Our final submission has 2 defects left. Unfortunately, due to the limitation of time, the full report would only be out after the submission deadline of this project. This remaining 2 defects are mentioned here for reporting purposes.
+
+# [](#Conclusion) Conclusion
+
+We have worked on the distributed SUTD Bank Webapp, completed the main requisite functionalities and have implemented security features to a reasonable. Level. We have also shown our USE Case and USE diagrams. We have also reduced our defects down from 11 to 2. 
+
+
+
+
+
 
 
 
