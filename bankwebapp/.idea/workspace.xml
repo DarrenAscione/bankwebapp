@@ -83,7 +83,7 @@
             <entry file="file://$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/service/ClientTransactionDAOImpl.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="811">
-                  <caret line="214" column="1" lean-forward="true" selection-start-line="214" selection-start-column="1" selection-end-line="214" selection-end-column="1" />
+                  <caret line="214" column="1" lean-forward="false" selection-start-line="214" selection-start-column="1" selection-end-line="214" selection-end-column="1" />
                   <folding>
                     <marker date="1523959284475" expanded="true" signature="2186:2236" ph="SELECT * FRO... client_transaction" />
                     <marker date="1523959284475" expanded="true" signature="3196:3249" ph="SELECT * FRO... client_transaction" />
@@ -112,6 +112,16 @@
               </provider>
             </entry>
           </file>
+          <file leaf-file-name="LoginServlet.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/servlet/LoginServlet.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="353">
+                  <caret line="67" column="15" lean-forward="false" selection-start-line="67" selection-start-column="15" selection-end-line="67" selection-end-column="15" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file leaf-file-name="TransactionStatus.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/model/TransactionStatus.java">
               <provider selected="true" editor-type-id="text-editor">
@@ -126,7 +136,7 @@
             <entry file="file://$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/service/ClientTransactionDAO.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="68">
-                  <caret line="22" column="42" lean-forward="true" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
+                  <caret line="22" column="42" lean-forward="false" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
                   <folding />
                 </state>
               </provider>
@@ -136,27 +146,10 @@
             <entry file="file://$PROJECT_DIR$/src/test/java/sg/edu/sutd/bank/webapp/servlet/DefaultServletTest.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="527">
-                  <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+                  <caret line="31" column="5" lean-forward="false" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Readme.md" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Readme.md">
-              <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-                <state split_layout="SPLIT">
-                  <first_editor relative-caret-position="127">
-                    <caret line="453" column="0" lean-forward="true" selection-start-line="453" selection-start-column="0" selection-end-line="453" selection-end-column="0" />
-                    <folding>
-                      <marker date="1524283755428" expanded="true" signature="19702:19906" ph="..." />
-                      <marker date="1524283755428" expanded="true" signature="19957:20119" ph="..." />
-                      <marker date="1524283755428" expanded="true" signature="20645:20764" ph="{...}" />
-                    </folding>
-                  </first_editor>
-                  <second_editor />
                 </state>
               </provider>
             </entry>
@@ -166,7 +159,11 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="651">
                   <caret line="60" column="16" lean-forward="false" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="16" />
-                  <folding />
+                  <folding>
+                    <marker date="1517206614408" expanded="false" signature="0:104" ph="/.../" />
+                    <marker date="1517206614408" expanded="false" signature="142:329" ph="..." />
+                    <marker date="1517206614408" expanded="true" signature="1417:1435" ph="/**...*/" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -218,8 +215,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sutd-template</find>
-      <find>users</find>
       <find>client</find>
       <find>FileUploadServlet</find>
       <find>.navbar</find>
@@ -248,6 +243,8 @@
       <find>amount</find>
       <find>input-gr</find>
       <find>RequestDispatcher view = req.getRequestDispatcher(getPath(path));</find>
+      <find>userDAO.lo</find>
+      <find>protected pr</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -298,7 +295,6 @@
         <option value="$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/servlet/RegisterServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/service/UserDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/service/UserDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/servlet/LoginServlet.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/newTransaction.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/js/fileUpload.js" />
         <option value="$PROJECT_DIR$/pom.xml" />
@@ -312,6 +308,7 @@
         <option value="$PROJECT_DIR$/src/test/java/sg/edu/sutd/bank/webapp/servlet/DefaultServletTest.java" />
         <option value="$PROJECT_DIR$/Readme.md" />
         <option value="$PROJECT_DIR$/.travis.yml" />
+        <option value="$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/servlet/LoginServlet.java" />
       </list>
     </option>
   </component>
@@ -376,7 +373,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.34414226" />
     <property name="findjar.last.used.dir" value="$PROJECT_DIR$/target/generated-test-sources/test-annotations" />
@@ -411,7 +408,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.DefaultServletTest.getUserId_success">
+  <component name="RunManager" selected="Tomcat Server.tomcat">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -728,7 +725,7 @@
       <workItem from="1523949584669" duration="1408000" />
       <workItem from="1523951492804" duration="11721000" />
       <workItem from="1523967833381" duration="5797000" />
-      <workItem from="1524050645517" duration="5074000" />
+      <workItem from="1524050645517" duration="5370000" />
     </task>
     <servers />
   </component>
@@ -745,8 +742,8 @@
     <history-entry file="DefaultServletTest_getUserId_success - 2018.04.20 at 19h 39m 13s.xml">
       <configuration name="DefaultServletTest.getUserId_success" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HelperTest_input_normalizer - 2018.04.18 at 19h 24m 26s.xml">
-      <configuration name="HelperTest.input_normalizer" configurationId="JUnit" />
+    <history-entry file="DefaultServletTest_getUserId_success - 2018.04.21 at 12h 24m 26s.xml">
+      <configuration name="DefaultServletTest.getUserId_success" configurationId="JUnit" />
     </history-entry>
     <history-entry file="NewTransactionServletTest_doPost - 2018.04.20 at 17h 51m 29s.xml">
       <configuration name="NewTransactionServletTest.doPost" configurationId="JUnit" />
@@ -765,7 +762,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110880000" />
+    <option name="totallyTimeSpent" value="111176000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -789,7 +786,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3183214" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3183214" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958034" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25396827" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -996,14 +993,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/servlet/LoginServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/fileUpload.js" />
     <entry file="file://$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/servlet/ClientDashboardServlet.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1103,7 +1092,7 @@
         <state relative-caret-position="-10">
           <caret line="62" column="36" lean-forward="true" selection-start-line="62" selection-start-column="36" selection-end-line="62" selection-end-column="36" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1130,7 +1119,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/service/ClientTransactionDAOImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="811">
-          <caret line="214" column="1" lean-forward="true" selection-start-line="214" selection-start-column="1" selection-end-line="214" selection-end-column="1" />
+          <caret line="214" column="1" lean-forward="false" selection-start-line="214" selection-start-column="1" selection-end-line="214" selection-end-column="1" />
           <folding>
             <marker date="1523959284475" expanded="true" signature="2186:2236" ph="SELECT * FRO... client_transaction" />
             <marker date="1523959284475" expanded="true" signature="3196:3249" ph="SELECT * FRO... client_transaction" />
@@ -1142,7 +1131,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="651">
           <caret line="60" column="16" lean-forward="false" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="16" />
-          <folding />
+          <folding>
+            <marker date="1517206614408" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1517206614408" expanded="false" signature="142:329" ph="..." />
+            <marker date="1517206614408" expanded="true" signature="1417:1435" ph="/**...*/" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1157,7 +1150,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/service/ClientTransactionDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="22" column="42" lean-forward="true" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
+          <caret line="22" column="42" lean-forward="false" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
           <folding />
         </state>
       </provider>
@@ -1193,10 +1186,10 @@
         <state relative-caret-position="235">
           <caret line="192" column="0" lean-forward="false" selection-start-line="192" selection-start-column="0" selection-end-line="192" selection-end-column="0" />
           <folding>
-            <element signature="e#1930#1931#0" expanded="true" />
-            <element signature="e#1969#1970#0" expanded="true" />
-            <element signature="e#2029#2030#0" expanded="true" />
-            <element signature="e#2093#2094#0" expanded="true" />
+            <element signature="e#1930#1931#0" expanded="false" />
+            <element signature="e#1969#1970#0" expanded="false" />
+            <element signature="e#2029#2030#0" expanded="false" />
+            <element signature="e#2093#2094#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1206,7 +1199,7 @@
         <state relative-caret-position="375">
           <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding>
-            <element signature="e#1245#1246#0" expanded="true" />
+            <element signature="e#1245#1246#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1232,12 +1225,12 @@
         <state relative-caret-position="116">
           <caret line="366" column="20" lean-forward="true" selection-start-line="366" selection-start-column="20" selection-end-line="366" selection-end-column="20" />
           <folding>
-            <element signature="e#2922#2923#0" expanded="true" />
-            <element signature="e#2966#2967#0" expanded="true" />
-            <element signature="e#10310#10449#0" expanded="true" />
-            <element signature="e#10448#10449#0" expanded="true" />
-            <element signature="e#11040#11204#0" expanded="true" />
-            <element signature="e#11203#11204#0" expanded="true" />
+            <element signature="e#2922#2923#0" expanded="false" />
+            <element signature="e#2966#2967#0" expanded="false" />
+            <element signature="e#10310#10449#0" expanded="false" />
+            <element signature="e#10448#10449#0" expanded="false" />
+            <element signature="e#11040#11204#0" expanded="false" />
+            <element signature="e#11203#11204#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1263,16 +1256,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/sg/edu/sutd/bank/webapp/servlet/DefaultServletTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1293,6 +1276,24 @@
             </folding>
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/sg/edu/sutd/bank/webapp/servlet/DefaultServletTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" column="5" lean-forward="false" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/servlet/LoginServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="67" column="15" lean-forward="false" selection-start-line="67" selection-start-column="15" selection-end-line="67" selection-end-column="15" />
+          <folding />
         </state>
       </provider>
     </entry>

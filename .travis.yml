@@ -1,7 +1,6 @@
 launguage: java
-java:
-
-  - 1.8
+jdk:
+  - openjdk8
 
 before-script:
   - mvn install

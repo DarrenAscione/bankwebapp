@@ -52,20 +52,20 @@ public class LoginServlet extends DefaultServlet {
 				}
 				return;
 			}
-            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-
-            userDAO.blockUser(user);
-            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+//            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+//
+//            userDAO.blockUser(user);
+//            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
             User user2 = userDAO.loadUser(userName);
 
-            if (user2.getStatus() == UserStatus.BLOCKED) {
-                EmailServiceImp emailServiceImp = new EmailServiceImp();
-                ClientInfoDAO clientInfo = new ClientInfoDAOImpl();
-                clientInfo.loadAccountInfo(user2.getUserName());
-                ClientInfo clientInfo1 = clientInfo.loadAccountInfo(user2.getUserName());
-                emailServiceImp.sendMail(clientInfo1.getEmail(), "Your Account Has Been Locked", "Your Account has been suspended due to suspected misuse of service. This is part of Digital Banking's Security Feature, Please email us to have your account renewed.");
-            }
+//            if (user2.getStatus() == UserStatus.BLOCKED) {
+//                EmailServiceImp emailServiceImp = new EmailServiceImp();
+//                ClientInfoDAO clientInfo = new ClientInfoDAOImpl();
+//                clientInfo.loadAccountInfo(user2.getUserName());
+//                ClientInfo clientInfo1 = clientInfo.loadAccountInfo(user2.getUserName());
+//                emailServiceImp.sendMail(clientInfo1.getEmail(), "Your Account Has Been Locked", "Your Account has been suspended due to suspected misuse of service. This is part of Digital Banking's Security Feature, Please email us to have your account renewed.");
+//            }
 
 			sendError(req, "Invalid username/password!");
 		} catch(ServletException | ServiceException ex) {
