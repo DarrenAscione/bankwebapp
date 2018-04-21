@@ -3,3 +3,6 @@ jdk:
   - oraclejdk8
 
 script: cd bankwebapp
+
+after_success:
+  - mvn clean test jacoco:report coveralls:report

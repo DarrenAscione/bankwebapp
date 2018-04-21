@@ -75,7 +75,7 @@
             <entry file="file://$PROJECT_DIR$/src/test/java/sg/edu/sutd/bank/webapp/model/AbstractIdEntityTest.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="357">
-                  <caret line="26" column="14" lean-forward="true" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+                  <caret line="26" column="14" lean-forward="false" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
                   <folding />
                 </state>
               </provider>
@@ -97,7 +97,7 @@
             <entry file="file://$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/service/UserDAOImpl.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="510">
-                  <caret line="51" column="5" lean-forward="true" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
+                  <caret line="51" column="5" lean-forward="false" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
                   <folding>
                     <marker date="1523967473591" expanded="true" signature="1174:1230" ph="SELECT id, u... user" />
                   </folding>
@@ -109,7 +109,7 @@
             <entry file="file://$PROJECT_DIR$/src/test/java/sg/edu/sutd/bank/webapp/servlet/DefaultServletTest.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="799">
-                  <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+                  <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -129,7 +129,7 @@
             <entry file="file://$PROJECT_DIR$/src/test/java/sg/edu/sutd/bank/webapp/model/TransactionStatusTest.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="425">
-                  <caret line="31" column="51" lean-forward="true" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="51" />
+                  <caret line="31" column="51" lean-forward="false" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="51" />
                   <folding />
                 </state>
               </provider>
@@ -138,8 +138,8 @@
           <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/pom.xml">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="510">
-                  <caret line="30" column="12" lean-forward="false" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
+                <state relative-caret-position="535">
+                  <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -438,7 +438,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.34414226" />
     <property name="findjar.last.used.dir" value="$PROJECT_DIR$/target/generated-test-sources/test-annotations" />
@@ -474,7 +474,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UserRoleDAOImplTest.create">
+  <component name="RunManager" selected="Tomcat Server.tomcat">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -791,14 +791,11 @@
       <workItem from="1523949584669" duration="1408000" />
       <workItem from="1523951492804" duration="11721000" />
       <workItem from="1523967833381" duration="5797000" />
-      <workItem from="1524050645517" duration="26050000" />
+      <workItem from="1524050645517" duration="26392000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="UserRoleDAOImplTest_create - 2018.04.21 at 21h 00m 30s.xml">
-      <configuration name="UserRoleDAOImplTest.create" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="UserRoleDAOImplTest_create - 2018.04.21 at 21h 00m 40s.xml">
       <configuration name="UserRoleDAOImplTest.create" configurationId="JUnit" />
     </history-entry>
@@ -826,9 +823,12 @@
     <history-entry file="UserRoleDAOImplTest_create - 2018.04.21 at 21h 12m 35s.xml">
       <configuration name="UserRoleDAOImplTest.create" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="UserRoleDAOImplTest_create - 2018.04.21 at 21h 41m 50s.xml">
+      <configuration name="UserRoleDAOImplTest.create" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="131856000" />
+    <option name="totallyTimeSpent" value="132198000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1680" height="989" extended-state="0" />
@@ -1350,7 +1350,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/service/UserDAOImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
-          <caret line="51" column="5" lean-forward="true" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
+          <caret line="51" column="5" lean-forward="false" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
           <folding>
             <marker date="1523967473591" expanded="true" signature="1174:1230" ph="SELECT id, u... user" />
           </folding>
@@ -1360,7 +1360,7 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/sg/edu/sutd/bank/webapp/servlet/DefaultServletTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="799">
-          <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1368,7 +1368,7 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/sg/edu/sutd/bank/webapp/model/AbstractIdEntityTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
-          <caret line="26" column="14" lean-forward="true" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+          <caret line="26" column="14" lean-forward="false" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -1376,7 +1376,7 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/sg/edu/sutd/bank/webapp/model/TransactionStatusTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
-          <caret line="31" column="51" lean-forward="true" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="51" />
+          <caret line="31" column="51" lean-forward="false" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="51" />
           <folding />
         </state>
       </provider>
@@ -1391,8 +1391,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="12" lean-forward="false" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
+        <state relative-caret-position="535">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding />
         </state>
       </provider>
