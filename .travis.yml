@@ -5,7 +5,3 @@ jdk:
 before-script:
   - mvn install
 
-
-script:
-
-  - bankwebapp/src/test/java/sg/edu/sutd/bank/webapp
