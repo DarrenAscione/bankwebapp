@@ -18,14 +18,15 @@ public class NewTransactionServletTest extends Mockito {
 
     @Test
     public void doPost() throws Exception {
-        NewTransactionServlet newTransactionServlet = mock(NewTransactionServlet.class);
+        NewTransactionServlet newTransactionServlet = new NewTransactionServlet();
         ClientTransaction clientTransaction = new ClientTransaction();
         clientTransaction = spy(clientTransaction);
 
         HttpServletRequest request = mock(HttpServletRequest.class);
         HttpServletResponse response = mock(HttpServletResponse.class);
-
-        when(newTransactionServlet.getUserId(request)).thenReturn(12);
+        HttpSession session = mock(HttpSession.class);
+        when(request.getSession()).thenReturn(session);
+        when(request.getSession().getAttribute("user_id")).thenReturn(12);
         when(request.getParameter("amount")).thenReturn("10");
         when(request.getParameter("transcode")).thenReturn("234a9f84:162b932fad7:-7f41");
 
@@ -33,7 +34,7 @@ public class NewTransactionServletTest extends Mockito {
 
         newTransactionServlet.doPost(request, response);
 
-        //verify(request, atLeast(1)).getParameter("amount");
+        verify(request, atLeast(1)).getParameter("amount");
 
     }
 }

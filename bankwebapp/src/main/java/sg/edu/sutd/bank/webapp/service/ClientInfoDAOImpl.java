@@ -35,7 +35,7 @@ public class ClientInfoDAOImpl extends AbstractDAOImpl implements ClientInfoDAO 
 	@Override
 	public void create(ClientInfo account) throws ServiceException {
 		Connection conn = connectDB();
-		PreparedStatement ps;
+		PreparedStatement ps = null;
 		try {
 			ps = prepareStmt(conn, "INSERT INTO CLIENT_INFO(full_name, fin, date_of_birth, occupation, mobile_number, address, email, user_id)"
 					+ " VALUES(?,?,?,?,?,?,?,?)");
@@ -51,6 +51,8 @@ public class ClientInfoDAOImpl extends AbstractDAOImpl implements ClientInfoDAO 
 			executeInsert(account, ps);
 		} catch (SQLException e) {
 			throw ServiceException.wrap(e);
+		} finally {
+			closeDb(conn, ps, null);
 		}
 	}
 

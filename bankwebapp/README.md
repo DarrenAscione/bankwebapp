@@ -101,20 +101,107 @@ This step creates/overwrites the default schema `bankwebapp`.
   
 ## Introduction
 
-### Application Overview
+### [Application Overview](#application-overview)
 
 This report documents our work for the **50.531 Secure Software Engineering ** final project. In this project, we were distributed a running but incomplete web application for a bank - _bankwebapp_. This project is coded in _java_, using the _IntelliJ_ environment on the _Apache Tomcat 8.0_ server as _localhost_. The distributed project allows users to _register_ accounts and _login_. Additionally, there is a default username, _staff_1_ with administrative privileges. The key objectives for this project are
 
-1. Completion of the functionalities including transactions and batch transactions
-2. Implementation of security features
-3. Testing the project's source codes for defects
-4. Testing the project's source codes for vulnerabilities.
+1.  Completion of the functionalities including transactions and batch transactions
+2.  Implementation of security features
+3.  Testing the project's source codes for defects
+4.  Testing the project's source codes for vulnerabilities.
 
 Additionally, we will apply USE cases and USE case diagrams to show demonstrate our direction and logic flow.
 
-### Use Cases
+### [](#use-cases)Use Cases
 
-### Use Case Diagram
+| Name| Register|
+-------| -----
+| Objective | To register account in SUTD Bank|
+|Pre-conditions | User must have an existing email address. Password must consist of >8 characters, >1 uppercase, >1 lowercase, 1 symbol, 1 digit. User must have a valid FIN. |
+|Post-conditions|Success:	User creates a new account with unique username, password, personal and contact details that is stored in the database. Failure:Error message explaining why user was unable to create a new account. |
+|Actors|Primary: Users with the intention of using the SUTD Bank App.|
+|Trigger| User wants to store, transfer or receive money with SUTD Bank.|
+|Normal flow|User clicks on register button at main page > User enters full name > User enters FIN > User enters date of birth > User enters his/her occupation > User enters mobile contact > User enters mailing address > User enters valid email address > User enters username > User enters valid password > User clicks on _Register_ to register account > Staff_1 login > Staff_1 approve > Account successfully created > User receives a message saying his/her account is successfully created|
+|Alternative flow|User clicks on register button at main page > User enters full name > User enters FIN > User enters date of birth > User enters his/her occupation > User enters mobile contact ? User enters mailing address > User enters valid email address > User enters username > User enters password > User clicks on _Register_ to register account > Server rejects any of his/her entered fields > User receives a message saying any of his/her entered fields were not allowed, and the reason is displayed|
+|Interacts with| Staff Login (Extends)|
+|Open issues|
+------------
+| Name | Login |
+|------| -----|
+|Objective|To access the Bank App services in SUTD Bank
+|Pre-conditions|User must have a registered account with credentials inside SQL Database
+|Post-conditions|Success: Login Main Page showing account balance and transaction history. Failure: Message saying “Login failed”
+| Actors|Primary: User
+|Trigger|User wants to send or receive money or check account balance through SUTD Bank
+|Normal flow|User enters valid login username in SQL Database > User enters valid login password in SQL Database > User sees Main Page
+|Alternative flow|User enters valid/invalid login username > User enters invalid login password > User sees login error message
+|Interacts with|SQL Database, Main Page (includes)
+|Open issues
+-------
+| Name | Staff Login |
+|------| -----|
+|Objective|To gain administrative privileges.
+|Pre-conditions|User must have a registered account with credentials inside SQL Database
+|Post-conditions|Success: Login Staff Main Page showing account balance and transaction history. Failure: Message saying “Login failed”
+|Actors|Primary: Staff
+|Trigger|User wants to send or receive money or check account balance through SUTD Bank
+|Normal flow|Staff enters valid login username in SQL Database > Staff enters valid login password in SQL Database > Staff sees > Staff Main Page
+|Alternative flow|Staff enters valid/invalid login username > Staff enters invalid login password > Staff sees login error message
+|Interacts with|SQL Database, Staff Main Page (includes)
+|Open issues
+-----
+| Name | Main Page|
+|------| -----|
+|Objective|To access the Bank App services in SUTD Bank
+|Pre-conditions|User must have a registered account with credentials inside SQL Database
+|Post-conditions|Success: Login Main Page showing account balance and transaction history. Message saying “Login failed”
+|Actors| Primary: User
+|Trigger|User wants to send or receive money or check account balance through SUTD Bank
+|Normal flow|User enters valid login username in SQL Database > User enters valid login password in SQL Database > User sees Main Page
+|Alternative flow|User enters valid/invalid login username > User enters invalid login password > User sees login error message
+|Interacts with|SQL Database, Login (includes)
+--------
+| Name |Staff Main Page|
+|------| -----|
+|Objective|To approve/decline user requests.
+|Pre-conditions|Staff must be logged in.
+|Post-conditions|Success: Staff Main Page showing pending approvals, Staff Main Page showing null if no pending approvals. Failure: Message saying “Login failed”
+|Actors|Primary: Staff
+|Trigger|Staff wants to approve/decline user requests
+|Normal flow|Staff enters valid login username in SQL Database > Staff enters valid login password in SQL Database > Staff sees Main Page > Staff approves request OR Staff declines request. > Staff logs out. 
+|Alternative flow|Staff enters valid/invalid login username > Staffenters invalid login password > Staff sees login error message
+|Interacts with|SQL Database, StaffLogin (includes)
+|Open issues
+----------
+| Name | Transfer Money|
+|------| -----|
+|Objective|To transfer money from one account to another in SUTD Bank
+|Pre-conditions|User must be logged in, User must have sufficient funds, Payee must have an account with SUTD Bank
+|Post-conditions|Success: Money is successfully transferred from one account to another, User receives a messaging indicating that the transaction is successful. ransaction history updated. Failure: User has insufficient credits in account
+|Payee does not exist in database. System under maintenance
+|Actors|Primary: User_1 (Payer), User_2 (Payee)
+|Trigger|User wants to transfer money
+|Normal flow|User logs in with correct username and password > User enters prompt for money transfer > User enters payee account number > User enters amount of money to transfer > User confirms transfer > Staff_1 to login, approve transaction > User receives message of successful transfer > Transaction history updated
+|Alternative flow|User notified of insufficient credits > User is returned Transfer money window
+|Interacts with | SQL Database, Main Page (Includes), Staff Login (Extends)
+|Open issues| Implement time-out notification, Implement fail-safe for connection issues with notification to user
+------------
+| Name | Batch Transfer|
+|---------|---------|
+|Objective|To transfer money from one account to multiple accounts in SUTD Bank
+|Pre-conditions|User must have a registered account, User must have sufficient funds, Payee must have a registered account with SUTD Bank, User must have a completed form consisting of all details needed by the bank app for funds transfer (“the textfile”)
+|Post-conditions|Success: Message indicating file upload is successful. Transaction history updated. Failure: error message for insufficient funds or error in field(s).
+|Actors|Primary: User_1 (Payer). Secondary:  User_3 (Payee), User_4 (Payee)
+|Trigger|User wants to transfer money to multiple payees with SUTD Bank.
+|Normal flow|User fills up the textfile correctly > User selects Browse > User determines file path where the textfile was stored >  User selects Upload > User receives a message indicating the file upload was successful > Batch Transfer reads the textfile > Batch Transfers enters information from the textfile into Transfer Money, manually creating transactions > Staff_1 login, approve all transactions > Transaction history updated 
+|Alternative flow | User notified of insufficient credits > User is returned to the upload file window
+|Interacts with
+|SQL Database|Staff Login (Extends), Main Page (Includes), The textfile (Extends)
+|Open issues| Implement time-out notification, Implement fail-safe for connection issues with notification to user
+
+### [Use Case Diagram](#use-case-diagram)
+
+![](https://imageshack.com/a/img923/6210/eAJMjV.png)
 
 ## Project Structure
 
@@ -186,9 +273,9 @@ Additionally, we will apply USE cases and USE case diagrams to show demonstrate 
 |	|		|   |   ├── pageHeader.jsp
 |	|		|   |   ├── register.jsp
 |	|		|   |   ├── staffDashboard.jsp
-|	|		|   |   └── welcome.jsp
-|	|		|   └── web.xml
-|	|		└── index.jsp
+|   |       |   |   └── welcome.jsp
+|   |       |   └── web.xml
+|   |       └── index.jsp
 |   └── test
 ├── pom.xml
 └── README.md
@@ -384,7 +471,10 @@ User keys in wrong password and/or username 3 times.                            
 | TextFileTransaction3.3 | Precondition:TextFileTransaction3 has passed User1. User1 uploads a .pdf file and is parsed into the browser unsuccessfully.  User1: guest Password1: guest Account Balance: 100 Text File Format: .pdf                                | User receives alert message that parsing of .txt file failed. User is brought back to transaction tab.                                                |                |
 |                        |                                                                                                                                                                                                                                        |                                                                                                                                                       |                |
 
+### [Penetration Testing](#penetration-testing)
+Penetration testing (pen testing) refers to an authorized cyber attack on a given system for the purpose of reporting on security vulnerabilities or code defects. Typically, a pen testing process involves many steps. The first of which is reconnaisance, which could be some form of social engineering on a target group of personnel associated with a certain network or system. The reconnaisance team's objective is to gain personal information about the target personnel, such as birthdates, wedding anniversary dates, childrens' names or the town in which that target personnel grew up in - such information typically could be used for passwords. Once a certain node or workstation has been compromised, the pen testers would scan the network to find out the IP addresses of all devices within the network. The next step is to determine what the server's IP address is. The attackers would then attempt to compromise the server by finding out exploits. In today's context, we have a lot of open source tools available for pen testing.
 
+For this project, we have adopted _OWASP Zap_, a free and user-friendly tool. From their website, we download their installer, https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project and install the software accordingly. Once done, we run a session and enter a url address which we would like to pen test. We then enter http://localhost:8080/sutdbank/login. Zap performs fuzz pen testing and reports vulnerabilities to us.
 
 ## Analysis
 
@@ -392,12 +482,17 @@ Static analysis refers to the analysis of computer programs without actual execu
 
 ### Coverity Report
 
-To use Coverity Scan, we download their _zip_ package _cov-analysis-win64-2017.07.zip_ from https://scan.coverity.com/download?tab=java. The procedure requires two main steps:
 
-1. Register an account and the project at their website https://scan.coverity.com/. Users may also login with their _Github_ user credentials.
-2. Build the project log via the said zip package above. This step less trivial, and requires more time to set up. The coverity website instructs us to first to add the \bin directory in the zip package to our _path_. To do this, we run the _Edit the system environment variables_ utility in the _Windows Control Panel_. We would also need to add the _Apache Maven_ tool and _Java Development Kit_(JDK (not JRE)) compiler to to system path. Finally, we access the bankwebapp project directory with a _cmd_ shell, and use `mvn clean` to clean up undesirable units or steps and `cov-build --dir cov-int mvn -DskipTests=true compile` to build logs. A folder _cov-int_ will be added to the project directory. We compress this folder, and upload it to https://scan.coverity.com/projects/project_link?tab=overview . 
+### [Coverity Report](#coverity-report)
 
-We would then obtain the following summary.
-![https://imgur.com/abf1xow](image.png)
-//still figuring out how to upload images. 
-It will require up to 48 business hours to receive the full report.
+To use Coverity Scan, we download their _zip_ package _cov-analysis-win64-2017.07.zip_ from [https://scan.coverity.com/download?tab=java](https://scan.coverity.com/download?tab=java). The procedure requires two main steps:
+
+1.  Register an account and the project at their website [https://scan.coverity.com/](https://scan.coverity.com/). Users may also login with their _Github_ user credentials.
+2.  Build the project log via the said zip package above. This step less trivial, and requires more time to set up. The coverity website instructs us to first to add the \bin directory in the zip package to our _path_. To do this, we run the _Edit the system environment variables_ utility in the _Windows Control Panel_. We would also need to add the _Apache Maven_ tool and _Java Development Kit_(JDK (not JRE)) compiler to to system path. Finally, we access the bankwebapp project directory with a _cmd_ shell, and use `mvn clean` to clean up undesirable units or steps and `cov-build --dir cov-int mvn -DskipTests=true compile` to build logs. A folder _cov-int_ will be added to the project directory. We compress this folder, and upload it to [https://scan.coverity.com/projects/project_link?tab=overview](https://scan.coverity.com/projects/project_link?tab=overview) .
+
+We would then obtain the following summary. [![https://imgur.com/abf1xow](https://imageshack.com/a/img923/9932/iQW5ZD.png)](/DarrenAscione/bankwebapp/blob/master/bankwebapp/image.png) 
+
+
+
+
+
