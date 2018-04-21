@@ -8,4 +8,4 @@ before-script:
 
 script:
 
-  - bankwebapp/src/test/java/sg.edu.sutd.bank.webapp
+  - bankwebapp/src/test/java/sg/edu/sutd/bank/webapp
