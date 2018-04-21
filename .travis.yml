@@ -4,7 +4,7 @@ jdk:
 
 script: 
   - cd bankwebapp
-  - mvn cobertura:cobertura coveralls:report
 
 after_success:
+  - mvn cobertura:cobertura coveralls:report
   - mvn clean test jacoco:report coveralls:report
