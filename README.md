@@ -451,6 +451,14 @@ Once the file has been successfully parsed and the contents are deemed non malic
 
 Upon completion, the user will be redirected to the main dashboard page and the new list of transactions will appear in the table view with the status pending. 
 
+The file upload feature ensures that the user's id matches the code by receiving the user id information from the `HTTPServeltRequest` object. 
+
+```java
+User user = new User(getUserId(request));
+```
+
+This ensures that only the right user with the right transaction codes is allowed to make these transactions.
+
 ![Imgur](https://i.imgur.com/l8vbADs.png)
 **Figure 3.1: Uploading correct file format**
 
@@ -550,7 +558,34 @@ public static Boolean xss_match(String input) {
 
 Next, the `xss_match()` method uses regular expression to find if an existing user input matches the pattern that is in placed. In this case, it checks for any matching pattern to `"<script>"`. The method simply returns a boolean value of `true` or `false` if detected. 
 
+#### File Limitation
 
+As mentioned above, as a security feature, the file type is limited to `.txt` and the size of the file must be below 300 bytes. This is to prevent any possible injection attack and this serves as the first layer of defence mechanism. 
+
+```java
+if (fileItem.getSize() > 0 && fileItem.getSize() < 300) {  
+  if (!fileItem.getName().contains(".txt")) {  
+  throw new Exception("Wrong Format");  
+  }
+```
+
+The code snippet above shows the check for file type and the limitation on the file size.
+
+Next, the `Helper` class input sanitization methods are used to sanitise the user inputs for probable malicious attacks.
+
+```java
+while ((line = br.readLine()) != null) {  
+  String[] tokens = line.split(" ");  
+ for (int i=0; i < tokens.length; i++) {  
+  tokens[i] = Helper.input_normalizer(tokens[i]);  
+  System.out.println(tokens[i]);  
+ if (Helper.xss_match(tokens[i])) {  
+  System.out.println(tokens[i]);  
+ throw new ServerException("XSS Attempt!");  
+  }
+```
+
+Through this two layer defence, the attacker is prevented from attacking the application through the use of the upload file feature which may introduce vulnerability. 
 
 ### Race-Condition Prevention
 
@@ -765,6 +800,8 @@ mvn cobertura:cobertura coveralls:report
 
 ## Conclusion
 
-We have worked on the distributed SUTD Bank Webapp, completed the main requisite functionalities and have implemented security features to a reasonable. Level. We have also shown our USE Case and USE diagrams. We have also reduced our defects down from 11 to 2.
+We have worked on the distributed SUTD Bank Webapp, completed the main requisite functionalities and have implemented security features to a reasonable. Level. We have also shown our USE Case and USE diagrams. We have also reduced our defects down from 11 to 2. 
 
+However future improvements on the application could be higher code testing coverage, the use of HTTPS for secure connection, using JQuery to prevent and limit the keystrokes of the user (i.e. prevent users from inputing certain characters). 
 
+In conclusion, the required functionality were all implemented with security features designed in them and additional add-ons such as Mockito for testing, Javascript to limit user's input, Travis CI for automated integration testing, Coveralls for automated testing coverage report and file upload limitations were completed.

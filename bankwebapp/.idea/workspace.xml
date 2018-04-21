@@ -135,29 +135,12 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/pom.xml">
+          <file leaf-file-name="FileUploadServlet.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/servlet/FileUploadServlet.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="451">
-                  <caret line="108" column="10" lean-forward="true" selection-start-line="108" selection-start-column="10" selection-end-line="108" selection-end-column="10" />
+                <state relative-caret-position="179">
+                  <caret line="93" column="51" lean-forward="true" selection-start-line="93" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
                   <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/README.md">
-              <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-                <state split_layout="SPLIT">
-                  <first_editor relative-caret-position="515">
-                    <caret line="768" column="0" lean-forward="true" selection-start-line="768" selection-start-column="0" selection-end-line="768" selection-end-column="0" />
-                    <folding>
-                      <marker date="1524320417683" expanded="true" signature="26572:26776" ph="..." />
-                      <marker date="1524320417683" expanded="true" signature="26827:26989" ph="..." />
-                      <marker date="1524320417683" expanded="true" signature="27515:27634" ph="{...}" />
-                    </folding>
-                  </first_editor>
-                  <second_editor />
                 </state>
               </provider>
             </entry>
@@ -367,6 +350,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sutdbank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bankwebapp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="servlet" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="sutdbank" type="b2602c69:ProjectViewProjectNode" />
@@ -808,7 +800,7 @@
       <workItem from="1523949584669" duration="1408000" />
       <workItem from="1523951492804" duration="11721000" />
       <workItem from="1523967833381" duration="5797000" />
-      <workItem from="1524050645517" duration="27371000" />
+      <workItem from="1524050645517" duration="27875000" />
     </task>
     <servers />
   </component>
@@ -845,7 +837,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133177000" />
+    <option name="totallyTimeSpent" value="133681000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1680" height="989" extended-state="0" />
@@ -1148,14 +1140,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/servlet/FileUploadServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-429">
-          <caret line="72" column="25" lean-forward="true" selection-start-line="72" selection-start-column="25" selection-end-line="72" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/servlet/DefaultServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -1375,19 +1359,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/sg/edu/sutd/bank/webapp/model/TransactionStatusTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="31" column="51" lean-forward="false" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/sg/edu/sutd/bank/webapp/model/UserRoleTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="532">
           <caret line="51" column="70" lean-forward="false" selection-start-line="51" selection-start-column="70" selection-end-line="51" selection-end-column="70" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="515">
+            <caret line="768" column="0" lean-forward="true" selection-start-line="768" selection-start-column="0" selection-end-line="768" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
@@ -1399,18 +1386,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="515">
-            <caret line="768" column="0" lean-forward="true" selection-start-line="768" selection-start-column="0" selection-end-line="768" selection-end-column="0" />
-            <folding>
-              <marker date="1524320417683" expanded="true" signature="26572:26776" ph="..." />
-              <marker date="1524320417683" expanded="true" signature="26827:26989" ph="..." />
-              <marker date="1524320417683" expanded="true" signature="27515:27634" ph="{...}" />
-            </folding>
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/src/test/java/sg/edu/sutd/bank/webapp/model/TransactionStatusTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="31" column="51" lean-forward="false" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sg/edu/sutd/bank/webapp/servlet/FileUploadServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="93" column="51" lean-forward="true" selection-start-line="93" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
